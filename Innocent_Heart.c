@@ -11,49 +11,49 @@ void Display(void);
 void Reshape(int w,int h);
 void Timer(int);
 void init(void);
-void PutMap(char map,int x,int y,int n);//ƒ}ƒbƒv‚Ì•\¦
-void PutChar(void);//ƒLƒƒƒ‰‚Ì•\¦
-void PutTeki(int n,int what);//“GƒLƒƒƒ‰,ƒAƒCƒeƒ€‚Ì•\¦
-void PutMagic(int what);//–‚–@‚Ìc‚èg—p”•\¦
-void PutLife(void);//ƒ{ƒX‚Ìc‚èƒ‰ƒCƒt•\¦
-void PutSprite(int x,int y,int width,int height);//‰æ‘œ“\‚è•t‚¯
-void PutSprite_RE(int x,int y,int width,int height);//‰æ‘œ”½“]“\‚è•t‚¯
-void Attack(int what);//UŒ‚ˆ—
-void Attack_teki(int n);//“G‚ÌUŒ‚ˆ—
-void Attack_boss(int n);//ƒ{ƒX‚ÌUŒ‚ˆ—
-void Anime(int what,int teki_n,int boss_n);//UŒ‚‚È‚Ç‚ÌƒAƒjƒ
-void Keyboard(char key,int x,int y);//ƒL[ˆ—
-void KeyboardUp(char key,int x,int y);//ƒL[ˆ—
-void SpecialKey(int key,int x,int y);//ƒL[ˆ—
-void SpecialUpKey(int key,int x,int y);//ƒL[UPˆ—
-void Teki_hantei(void);//“G‚Æ‚ÌÕ“Ë‚â“G‚ÌUŒ‚AƒAƒCƒeƒ€‚Ì”»’è‚È‚Ç‚ğˆ—‚·‚é
-void Boss_hantei(void);//ƒ{ƒX‚Æ‚ÌÕ“Ë‚âUŒ‚‚ğˆ—‚·‚é
-void Kabe_hantei(int who,int n);//•Ç”»’è
-void Die(void);//€–SŒã‚Ìˆ—
-void Stage_Change(void);//ƒXƒe[ƒW‚ğ•Ï‚¦‚é
-void Game_Clear(void);//ƒQ[ƒ€ƒNƒŠƒAŒã‚Ìˆ—
+void PutMap(char map,int x,int y,int n);//ãƒãƒƒãƒ—ã®è¡¨ç¤º
+void PutChar(void);//ã‚­ãƒ£ãƒ©ã®è¡¨ç¤º
+void PutTeki(int n,int what);//æ•µã‚­ãƒ£ãƒ©,ã‚¢ã‚¤ãƒ†ãƒ ã®è¡¨ç¤º
+void PutMagic(int what);//é­”æ³•ã®æ®‹ã‚Šä½¿ç”¨æ•°è¡¨ç¤º
+void PutLife(void);//ãƒœã‚¹ã®æ®‹ã‚Šãƒ©ã‚¤ãƒ•è¡¨ç¤º
+void PutSprite(int x,int y,int width,int height);//ç”»åƒè²¼ã‚Šä»˜ã‘
+void PutSprite_RE(int x,int y,int width,int height);//ç”»åƒåè»¢è²¼ã‚Šä»˜ã‘
+void Attack(int what);//æ”»æ’ƒå‡¦ç†
+void Attack_teki(int n);//æ•µã®æ”»æ’ƒå‡¦ç†
+void Attack_boss(int n);//ãƒœã‚¹ã®æ”»æ’ƒå‡¦ç†
+void Anime(int what,int teki_n,int boss_n);//æ”»æ’ƒãªã©ã®ã‚¢ãƒ‹ãƒ¡
+void Keyboard(char key,int x,int y);//ã‚­ãƒ¼å‡¦ç†
+void KeyboardUp(char key,int x,int y);//ã‚­ãƒ¼å‡¦ç†
+void SpecialKey(int key,int x,int y);//ã‚­ãƒ¼å‡¦ç†
+void SpecialUpKey(int key,int x,int y);//ã‚­ãƒ¼UPå‡¦ç†
+void Teki_hantei(void);//æ•µã¨ã®è¡çªã‚„æ•µã®æ”»æ’ƒã€ã‚¢ã‚¤ãƒ†ãƒ ã®åˆ¤å®šãªã©ã‚’å‡¦ç†ã™ã‚‹
+void Boss_hantei(void);//ãƒœã‚¹ã¨ã®è¡çªã‚„æ”»æ’ƒã‚’å‡¦ç†ã™ã‚‹
+void Kabe_hantei(int who,int n);//å£åˆ¤å®š
+void Die(void);//æ­»äº¡å¾Œã®å‡¦ç†
+void Stage_Change(void);//ã‚¹ãƒ†ãƒ¼ã‚¸ã‚’å¤‰ãˆã‚‹
+void Game_Clear(void);//ã‚²ãƒ¼ãƒ ã‚¯ãƒªã‚¢å¾Œã®å‡¦ç†
 
-#define WindowWidth 640//ƒEƒBƒ“ƒhƒE‚Ì‘å‚«‚³
+#define WindowWidth 640//ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦ã®å¤§ãã•
 #define WindowHeight 480
 #define MapWidth 100
 #define MapHeight 15
-#define Tex_NUM 3//ƒ}ƒbƒvƒCƒ[ƒW”
-#define Scene_NUM 14//ƒV[ƒ“‚ÌƒCƒ[ƒW”
-#define NUM_IMAGE 4//”š‰æ‘œ‚Ì”
+#define Tex_NUM 3//ãƒãƒƒãƒ—ã‚¤ãƒ¡ãƒ¼ã‚¸æ•°
+#define Scene_NUM 14//ã‚·ãƒ¼ãƒ³ã®ã‚¤ãƒ¡ãƒ¼ã‚¸æ•°
+#define NUM_IMAGE 4//æ•°å­—ç”»åƒã®æ•°
 #define Char_NUM 3
 #define Teki_NUM 25
-#define Attack_NUM 4//UŒ‚‚Ìí—Ş
-#define Boss_Attack_NUM 4//ƒ{ƒX‚ÌUŒ‚‚Ìí—Ş
-#define Char_Size 32//ƒCƒ[ƒWƒTƒCƒY
-#define Boss_Size 64//ƒ{ƒXƒTƒCƒY
-#define Life_Size 16//ƒ{ƒX‚Ìƒ‰ƒCƒtƒTƒCƒY
+#define Attack_NUM 4//æ”»æ’ƒã®ç¨®é¡
+#define Boss_Attack_NUM 4//ãƒœã‚¹ã®æ”»æ’ƒã®ç¨®é¡
+#define Char_Size 32//ã‚¤ãƒ¡ãƒ¼ã‚¸ã‚µã‚¤ã‚º
+#define Boss_Size 64//ãƒœã‚¹ã‚µã‚¤ã‚º
+#define Life_Size 16//ãƒœã‚¹ã®ãƒ©ã‚¤ãƒ•ã‚µã‚¤ã‚º
 #define Step 4
-#define JumpHeight 44//ƒWƒƒƒ“ƒv—Í(‰‘¬“x)
+#define JumpHeight 44//ã‚¸ãƒ£ãƒ³ãƒ—åŠ›(åˆé€Ÿåº¦)
 
-struct attack_anime//UŒ‚‚Ì‘®«
+struct attack_anime//æ”»æ’ƒã®å±æ€§
 {
-    int x,y,t;//t‚ÍŠÔ
-    int flag;//UŒ‚’†‚©‚Ç‚¤‚©
+    int x,y,t;//tã¯æ™‚é–“
+    int flag;//æ”»æ’ƒä¸­ã‹ã©ã†ã‹
     int direction;
     int limit;
 
@@ -61,20 +61,20 @@ struct attack_anime//UŒ‚‚Ì‘®«
     GLuint texture[3];
 };
 
-struct teki_status//“G‚Ìî•ñ
+struct teki_status//æ•µã®æƒ…å ±
 {
     int x,y,cursor,t,walk_flag;
-    int flag,out_flag;//¶‚«‚Ä‚¢‚é‚©‚Ç‚¤‚©,‰æ–Ê‚ÌŠO‚É‚¢‚½‚©‚Ç‚¤‚©
+    int flag,out_flag;//ç”Ÿãã¦ã„ã‚‹ã‹ã©ã†ã‹,ç”»é¢ã®å¤–ã«ã„ãŸã‹ã©ã†ã‹
     int direction;
 
     pngInfo info[2];
     GLuint texture[2];
 };
 
-struct teki_attack_anime//“G‚ÌUŒ‚
+struct teki_attack_anime//æ•µã®æ”»æ’ƒ
 {
     int x,y,t;
-    float x_move,y_move;//move‚ÍˆÚ“®—Ê
+    float x_move,y_move;//moveã¯ç§»å‹•é‡
     float x_sum,y_sum;
     int flag;
     int direction;
@@ -83,21 +83,21 @@ struct teki_attack_anime//“G‚ÌUŒ‚
     GLuint texture[3];
 };
 
-struct item_status//ƒAƒCƒeƒ€‚Ìî•ñ
+struct item_status//ã‚¢ã‚¤ãƒ†ãƒ ã®æƒ…å ±
 {
-    int x,y,kind;//kind‚ÍƒAƒCƒeƒ€‚Ìí—Ş
+    int x,y,kind;//kindã¯ã‚¢ã‚¤ãƒ†ãƒ ã®ç¨®é¡
     int flag,out_flag,appear_flag;
-    //flag‚Í•\¦‚·‚é‚©‚µ‚È‚¢‚©
-    //out_flag‚Í‰æ–ÊŠO‚©‚Ç‚¤‚©
-    //appear_flag‚Í‘¶İ‚µ‚Ä‚¢‚é‚©‚Ç‚¤‚©
+    //flagã¯è¡¨ç¤ºã™ã‚‹ã‹ã—ãªã„ã‹
+    //out_flagã¯ç”»é¢å¤–ã‹ã©ã†ã‹
+    //appear_flagã¯å­˜åœ¨ã—ã¦ã„ã‚‹ã‹ã©ã†ã‹
     pngInfo info[1];
     GLuint texture[1];
 };
 
-struct boss_status//ƒ{ƒX‚Ìî•ñ
+struct boss_status//ãƒœã‚¹ã®æƒ…å ±
 {
     int x,y,cursor,t,walk_flag;
-    int flag;//¶‚«‚Ä‚¢‚é‚©‚Ç‚¤‚©
+    int flag;//ç”Ÿãã¦ã„ã‚‹ã‹ã©ã†ã‹
     int direction;
     int life,nodamage_t;
 
@@ -105,7 +105,7 @@ struct boss_status//ƒ{ƒX‚Ìî•ñ
     GLuint texture[2];
 };
 
-struct boss_attack_anime//ƒ{ƒX‚ÌUŒ‚
+struct boss_attack_anime//ãƒœã‚¹ã®æ”»æ’ƒ
 {
     int x[3],y[3],t;
     int x_move[3],y_move[3];
@@ -116,26 +116,26 @@ struct boss_attack_anime//ƒ{ƒX‚ÌUŒ‚
     GLuint texture[3];
 };
 
-//+++++++++++++++++++++++++++++++++++++ƒeƒNƒXƒ`ƒƒ+++++++++++++++++++++++++++++++++
+//+++++++++++++++++++++++++++++++++++++ãƒ†ã‚¯ã‚¹ãƒãƒ£+++++++++++++++++++++++++++++++++
 pngInfo map_info[Tex_NUM+1],scene_info[Scene_NUM],Char_info[Char_NUM],num_info[NUM_IMAGE],item_info[Attack_NUM-1],life_info;
 GLuint  map_texture[Tex_NUM],scene_texture[Scene_NUM],Char_texture[Char_NUM],num_texture[NUM_IMAGE],item_texture[Attack_NUM-1],life_texture;
 
 int walk_flag=0,walk_count=0,right_end_flag=0;
 int x_char,y_char,y_tempchar=0;
-int cursor_flag=0,cursor_key=0,direction=2;//cursor=0:‚È‚µ,1:ã,2:‰E,3:¶,4:‰º‚ğƒJ[ƒ\ƒ‹“ü—Í‚µ‚½
+int cursor_flag=0,cursor_key=0,direction=2;//cursor=0:ãªã—,1:ä¸Š,2:å³,3:å·¦,4:ä¸‹ã‚’ã‚«ãƒ¼ã‚½ãƒ«å…¥åŠ›ã—ãŸ
 int jump_flag=0,jump_key;
-int stage=0,stage_start=0;//ƒV[ƒ“—pƒtƒ‰ƒO
+int stage=0,stage_start=0;//ã‚·ãƒ¼ãƒ³ç”¨ãƒ•ãƒ©ã‚°
 float jump_t;
 int z_key,a_key,s_key,d_key,fall_flag=0,pause_flag=1,pause_key=0,die_t;
 int clear_flag,clear_scene,z_up,change_flag;
 
-//++++++++++++UŒ‚‚Ì\‘¢‘Ìİ’è+++++++++++++++
-static struct attack_anime attack[Attack_NUM];//UŒ‚‚Ìí—Ş”
-static struct teki_status teki[Teki_NUM];//“G‚Ì”
-static struct teki_attack_anime teki_attack[Teki_NUM];//“G‚ÌUŒ‚
-static struct item_status item[Teki_NUM];//ƒAƒCƒeƒ€‚Ì”=“G‚Ì”
-static struct boss_status boss;//ƒ{ƒXî•ñ
-static struct boss_attack_anime boss_attack[Boss_Attack_NUM];//ƒ{ƒX‚ÌUŒ‚
+//++++++++++++æ”»æ’ƒã®æ§‹é€ ä½“è¨­å®š+++++++++++++++
+static struct attack_anime attack[Attack_NUM];//æ”»æ’ƒã®ç¨®é¡æ•°
+static struct teki_status teki[Teki_NUM];//æ•µã®æ•°
+static struct teki_attack_anime teki_attack[Teki_NUM];//æ•µã®æ”»æ’ƒ
+static struct item_status item[Teki_NUM];//ã‚¢ã‚¤ãƒ†ãƒ ã®æ•°=æ•µã®æ•°
+static struct boss_status boss;//ãƒœã‚¹æƒ…å ±
+static struct boss_attack_anime boss_attack[Boss_Attack_NUM];//ãƒœã‚¹ã®æ”»æ’ƒ
 
 char map[MapHeight][MapWidth];
 
@@ -156,7 +156,7 @@ int main(int argc, char **argv)
     glutInitDisplayMode(GLUT_RGBA | GLUT_DOUBLE | GLUT_ALPHA);
     glClearColor(0.0, 0.0, 1.0, 1.0);
 
-    width=glutGet(GLUT_SCREEN_WIDTH);//ƒfƒBƒXƒvƒŒƒC‚Ì•
+    width=glutGet(GLUT_SCREEN_WIDTH);//ãƒ‡ã‚£ã‚¹ãƒ—ãƒ¬ã‚¤ã®å¹…
     height=glutGet(GLUT_SCREEN_HEIGHT);
 
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
@@ -164,21 +164,21 @@ int main(int argc, char **argv)
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP);
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP);
 
-    //+++++++++++ƒ[ƒh‰æ–Ê‚Ì‰æ‘œ“Ç‚İ‚İ++++++++++++++++++++++++++++
+    //+++++++++++ãƒ­ãƒ¼ãƒ‰ç”»é¢ã®ç”»åƒèª­ã¿è¾¼ã¿++++++++++++++++++++++++++++
     for(i=0;i<Scene_NUM;i++)
     {
         sprintf(file_name,"image/scene_%d.png",i+1);
         scene_texture[i] = pngBind(file_name, PNG_NOMIPMAP, PNG_ALPHA, &scene_info[i], GL_CLAMP, GL_NEAREST, GL_NEAREST);
     }
 
-    //+++++++++++ƒLƒƒƒ‰‰æ‘œ“Ç‚İ‚İ+++++++++++++++++++++++++++++
+    //+++++++++++ã‚­ãƒ£ãƒ©ç”»åƒèª­ã¿è¾¼ã¿+++++++++++++++++++++++++++++
     for(i=0;i<Char_NUM;i++)
     {
         sprintf(file_name,"image/char_%d.png",i+1);
         Char_texture[i] = pngBind(file_name, PNG_NOMIPMAP, PNG_ALPHA, &Char_info[i], GL_CLAMP, GL_NEAREST, GL_NEAREST);
     }
 
-    //++++++++++++“G‚Ì‰æ‘œ“Ç‚İ‚İ+++++++++++++++
+    //++++++++++++æ•µã®ç”»åƒèª­ã¿è¾¼ã¿+++++++++++++++
     for(j=0;j<Teki_NUM;j++)
     {
         for(i=0;i<2;i++)
@@ -188,19 +188,19 @@ int main(int argc, char **argv)
         }
     }
 
-    //++++++++++++“G‚ÌUŒ‚‚Ì‰æ‘œ“Ç‚İ‚İ+++++++++++++++
+    //++++++++++++æ•µã®æ”»æ’ƒã®ç”»åƒèª­ã¿è¾¼ã¿+++++++++++++++
     for(j=0;j<Teki_NUM;j++)
     {
         for(i=0;i<3;i++)
         {
-            if(j%4==2)//ƒf[ƒ‚ƒ“‚Ì–‚–@
+            if(j%4==2)//ãƒ‡ãƒ¼ãƒ¢ãƒ³ã®é­”æ³•
                 sprintf(file_name,"image/teki_attack_%d.png",i+1);
-            else//ƒEƒBƒU[ƒh‚Ì–‚–@
+            else//ã‚¦ã‚£ã‚¶ãƒ¼ãƒ‰ã®é­”æ³•
                 sprintf(file_name,"image/teki_attack_wind_%d.png",i+1);
             teki_attack[j].texture[i] = pngBind(file_name, PNG_NOMIPMAP, PNG_ALPHA, &teki_attack[j].info[i], GL_CLAMP, GL_NEAREST, GL_NEAREST);
         }
     }
-    //++++++++++++ƒ{ƒX‚ÌUŒ‚‚Ì‰æ‘œ“Ç‚İ‚İ+++++++++++++++
+    //++++++++++++ãƒœã‚¹ã®æ”»æ’ƒã®ç”»åƒèª­ã¿è¾¼ã¿+++++++++++++++
     for(j=0;j<Boss_Attack_NUM;j++)
     {
         for(i=0;i<3;i++)
@@ -216,36 +216,36 @@ int main(int argc, char **argv)
         }
     }
 
-    //++++++++++++ƒAƒCƒeƒ€‚Ì‰æ‘œ“Ç‚İ‚İ+++++++++++++++
+    //++++++++++++ã‚¢ã‚¤ãƒ†ãƒ ã®ç”»åƒèª­ã¿è¾¼ã¿+++++++++++++++
     for(j=0;j<Teki_NUM;j++)
     {
         for(i=0;i<1;i++)
         {
-            item[j].kind=3*(random()/(double)(RAND_MAX+1.0));//ƒAƒCƒeƒ€‚Ìí—Ş‚ğƒ‰ƒ“ƒ_ƒ€‚Å‘I‘ğ
+            item[j].kind=3*(random()/(double)(RAND_MAX+1.0));//ã‚¢ã‚¤ãƒ†ãƒ ã®ç¨®é¡ã‚’ãƒ©ãƒ³ãƒ€ãƒ ã§é¸æŠ
             sprintf(file_name,"image/item_%d.png",item[j].kind+1);
             item[j].texture[i] = pngBind(file_name, PNG_NOMIPMAP, PNG_ALPHA, &item[j].info[i], GL_CLAMP, GL_NEAREST, GL_NEAREST);
         }
     }
 
-    //++++++++++++c‚è–‚–@g—p‰ñ”‚Ì‰æ‘œ“Ç‚İ‚İ+++++++++++++++
-    for(i=0;i<Attack_NUM-1;i++)//3í—Ş
+    //++++++++++++æ®‹ã‚Šé­”æ³•ä½¿ç”¨å›æ•°ã®ç”»åƒèª­ã¿è¾¼ã¿+++++++++++++++
+    for(i=0;i<Attack_NUM-1;i++)//3ç¨®é¡
     {
         sprintf(file_name,"image/item_%d.png",i+1);
         item_texture[i] = pngBind(file_name, PNG_NOMIPMAP, PNG_ALPHA, &item_info[i], GL_CLAMP, GL_NEAREST, GL_NEAREST);
     }
 
-    //++++++++++++ƒ{ƒX‚Ìc‚èƒ‰ƒCƒt‚Ì‰æ‘œ“Ç‚İ‚İ+++++++++++++++
+    //++++++++++++ãƒœã‚¹ã®æ®‹ã‚Šãƒ©ã‚¤ãƒ•ã®ç”»åƒèª­ã¿è¾¼ã¿+++++++++++++++
     sprintf(file_name,"image/life.png");
     life_texture = pngBind(file_name, PNG_NOMIPMAP, PNG_ALPHA, &life_info, GL_CLAMP, GL_NEAREST, GL_NEAREST);
 
-    //++++++++++++”š‰æ‘œ“Ç‚İ‚İ+++++++++++++++
+    //++++++++++++æ•°å­—ç”»åƒèª­ã¿è¾¼ã¿+++++++++++++++
     for(i=0;i<NUM_IMAGE;i++)
     {
         sprintf(file_name,"image/num_%d.png",i);
         num_texture[i] = pngBind(file_name, PNG_NOMIPMAP, PNG_ALPHA, &num_info[i], GL_CLAMP, GL_NEAREST, GL_NEAREST);
     }
 
-    //++++++++++++UŒ‚‚Ì‰æ‘œ“Ç‚İ‚İ+++++++++++++++
+    //++++++++++++æ”»æ’ƒã®ç”»åƒèª­ã¿è¾¼ã¿+++++++++++++++
     for(j=0;j<Attack_NUM;j++)
     {
         for(i=0;i<3;i++)
@@ -261,24 +261,24 @@ int main(int argc, char **argv)
         }
         attack[j].limit=3;
     }
-    //++++++++++++ƒ{ƒX‚Ì‰æ‘œ“Ç‚İ‚İ+++++++++++++++
+    //++++++++++++ãƒœã‚¹ã®ç”»åƒèª­ã¿è¾¼ã¿+++++++++++++++
     for(i=0;i<2;i++)
     {
         sprintf(file_name,"image/boss_%d.png",i+1);
         boss.texture[i] = pngBind(file_name, PNG_NOMIPMAP, PNG_ALPHA, &boss.info[i], GL_CLAMP, GL_NEAREST, GL_NEAREST);
     }
     
-    init();//‰Šú‰»
+    init();//åˆæœŸåŒ–
     
-    glEnable(GL_BLEND);//ƒeƒNƒXƒ`ƒƒ‚ÌƒAƒ‹ƒtƒ@ƒ`ƒƒƒ“ƒlƒ‹—LŒø
+    glEnable(GL_BLEND);//ãƒ†ã‚¯ã‚¹ãƒãƒ£ã®ã‚¢ãƒ«ãƒ•ã‚¡ãƒãƒ£ãƒ³ãƒãƒ«æœ‰åŠ¹
     glBlendFunc(GL_SRC_ALPHA,GL_ONE_MINUS_SRC_ALPHA);
     glTexEnvf(GL_TEXTURE_ENV,GL_TEXTURE_ENV_MODE,GL_MODULATE);
 
     glEnable(GL_CULL_FACE);
     
-    glutDisplayFunc(Display);//Display’è‹`
-    glutReshapeFunc(Reshape);//Reshape’è‹`
-    glutTimerFunc(500,Timer,0);//0.5•b‚¸‚ÂŒÄ‚Ño‚µ
+    glutDisplayFunc(Display);//Displayå®šç¾©
+    glutReshapeFunc(Reshape);//Reshapeå®šç¾©
+    glutTimerFunc(500,Timer,0);//0.5ç§’ãšã¤å‘¼ã³å‡ºã—
 
     glutKeyboardFunc(Keyboard);
     glutKeyboardUpFunc(KeyboardUp);
@@ -290,13 +290,13 @@ int main(int argc, char **argv)
     return(0);
 }
 
-void init(void)//‰Šú‰» ƒRƒ“ƒeƒjƒ…[‚È‚Ç‚ÅŒÄ‚Ô
+void init(void)//åˆæœŸåŒ– ã‚³ãƒ³ãƒ†ãƒ‹ãƒ¥ãƒ¼æ™‚ãªã©ã§å‘¼ã¶
 {
     int i;
     
     cursor_flag=0;cursor_key=0;direction=2;
     jump_flag=0;fall_flag=0;jump_t=0;
-    if(boss.flag==1)//•œŠˆŒã‚ÌƒLƒƒƒ‰ƒNƒ^[‚ÌˆÊ’u(ƒ{ƒXí)
+    if(boss.flag==1)//å¾©æ´»å¾Œã®ã‚­ãƒ£ãƒ©ã‚¯ã‚¿ãƒ¼ã®ä½ç½®(ãƒœã‚¹æˆ¦)
     {
         x_char=Char_Size*75;y_char=Char_Size*12;
     }
@@ -305,9 +305,9 @@ void init(void)//‰Šú‰» ƒRƒ“ƒeƒjƒ…[‚È‚Ç‚ÅŒÄ‚Ô
         x_char=Char_Size*2;y_char=Char_Size*12;
         boss.flag=0;
     }
-    right_end_flag=0;//‰E’[‚ÌƒJƒƒ‰ŒÅ’è‚ğ‰ğœ
+    right_end_flag=0;//å³ç«¯ã®ã‚«ãƒ¡ãƒ©å›ºå®šã‚’è§£é™¤
     pause_flag=1;
-    die_t=0;//€–SŠÔ0=€‚ñ‚Å‚¢‚È‚¢
+    die_t=0;//æ­»äº¡æ™‚é–“0=æ­»ã‚“ã§ã„ãªã„
     
     for(i=0;i<Attack_NUM;i++)
     {
@@ -318,49 +318,49 @@ void init(void)//‰Šú‰» ƒRƒ“ƒeƒjƒ…[‚È‚Ç‚ÅŒÄ‚Ô
     {
         teki[i].flag=1;
         teki[i].out_flag=0;
-        teki[i].direction=2;//‰Šúİ’è‚Å‚Í“G‚Í‰E‚ğŒü‚¢‚Ä‚¢‚é
+        teki[i].direction=2;//åˆæœŸè¨­å®šã§ã¯æ•µã¯å³ã‚’å‘ã„ã¦ã„ã‚‹
         teki[i].cursor=0;
-        item[i].flag=0;//ƒAƒCƒeƒ€‚ğÁ‚·
+        item[i].flag=0;//ã‚¢ã‚¤ãƒ†ãƒ ã‚’æ¶ˆã™
         item[i].out_flag=0;
         item[i].appear_flag=0;
-        teki_attack[i].flag=0;//“G‚ÌUŒ‚‚ğÁ‚·
+        teki_attack[i].flag=0;//æ•µã®æ”»æ’ƒã‚’æ¶ˆã™
         teki_attack[i].t=0;
     }
     boss.direction=3;boss.cursor=0;
     boss.nodamage_t=0;
     for(i=0;i<Boss_Attack_NUM;i++)
     {
-        boss_attack[i].flag=0;//ƒ{ƒX‚ÌUŒ‚‚ğÁ‚·
+        boss_attack[i].flag=0;//ãƒœã‚¹ã®æ”»æ’ƒã‚’æ¶ˆã™
         boss_attack[i].t=0;
     }
     
     for(i=0;i<Attack_NUM;i++)
-        attack[i].limit=3;//–‚–@g—p‰ñ”‰Šú‰»
-    clear_flag=0;clear_scene=4;z_up=1;//ƒQ[ƒ€ƒNƒŠƒA—p
+        attack[i].limit=3;//é­”æ³•ä½¿ç”¨å›æ•°åˆæœŸåŒ–
+    clear_flag=0;clear_scene=4;z_up=1;//ã‚²ãƒ¼ãƒ ã‚¯ãƒªã‚¢ç”¨
     change_flag=0;
 }
 
 //
-//ƒEƒBƒ“ƒhƒE‚Ì•\¦“à—e‚ğXV‚·‚éŠÖ”
+//ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦ã®è¡¨ç¤ºå†…å®¹ã‚’æ›´æ–°ã™ã‚‹é–¢æ•°
 //
 void Display(void)
 {
     int i,j,n=0;
     
-    if(stage==0 || stage_start==0)//ƒ^ƒCƒgƒ‹‰æ–Ê‚©ƒXƒe[ƒWŠJn‚©ƒNƒŠƒAŒã
+    if(stage==0 || stage_start==0)//ã‚¿ã‚¤ãƒˆãƒ«ç”»é¢ã‹ã‚¹ãƒ†ãƒ¼ã‚¸é–‹å§‹æ™‚ã‹ã‚¯ãƒªã‚¢å¾Œ
     {
         return;
     }
     
     glClear(GL_COLOR_BUFFER_BIT);
 
-    if(x_char > WindowWidth/2)//^‚ñ’†‚æ‚è‰E‚És‚Á‚½‚Æ‚«
+    if(x_char > WindowWidth/2)//çœŸã‚“ä¸­ã‚ˆã‚Šå³ã«è¡Œã£ãŸã¨ã
     {
         n=(x_char-WindowWidth/2)/Char_Size;
-        if(x_char >= Char_Size*(MapWidth-11) || right_end_flag==1)//‰E’[
+        if(x_char >= Char_Size*(MapWidth-11) || right_end_flag==1)//å³ç«¯
         {
-            n=MapWidth-21;//‰æ–ÊŒÅ’è
-            if(x_char==Char_Size*(MapWidth-2) && stage==1)//Ÿ‚ÌƒXƒe[ƒW‚Ö
+            n=MapWidth-21;//ç”»é¢å›ºå®š
+            if(x_char==Char_Size*(MapWidth-2) && stage==1)//æ¬¡ã®ã‚¹ãƒ†ãƒ¼ã‚¸ã¸
             {
                 stage=2;
                 Stage_Change();
@@ -369,7 +369,7 @@ void Display(void)
         }
     }
 
-    for(i=0;i<15;i++)//ƒ}ƒbƒv•\¦
+    for(i=0;i<15;i++)//ãƒãƒƒãƒ—è¡¨ç¤º
     {
         for(j=0;j<=20;j++)
         {
@@ -377,33 +377,33 @@ void Display(void)
         }
     }
     
-    //+++++++++++ŠeƒLƒƒƒ‰ƒNƒ^[‚âUŒ‚‚Ìˆ—+++++++++++++++++++
+    //+++++++++++å„ã‚­ãƒ£ãƒ©ã‚¯ã‚¿ãƒ¼ã‚„æ”»æ’ƒã®å‡¦ç†+++++++++++++++++++
     PutChar();
-    if(boss.flag==1)//ƒ{ƒXí
+    if(boss.flag==1)//ãƒœã‚¹æˆ¦
     {
         for(i=0;i<Boss_Attack_NUM;i++)
         {
-            if(boss_attack[i].flag==1)//ƒ{ƒX‚ÌUŒ‚
+            if(boss_attack[i].flag==1)//ãƒœã‚¹ã®æ”»æ’ƒ
                 Attack_boss(i);
         }
-        PutTeki(0,2);//ƒ{ƒX‚Ì•\¦
-        PutLife();//ƒ{ƒX‚Ìƒ‰ƒCƒt•\¦
+        PutTeki(0,2);//ãƒœã‚¹ã®è¡¨ç¤º
+        PutLife();//ãƒœã‚¹ã®ãƒ©ã‚¤ãƒ•è¡¨ç¤º
     }
     else
     {
         for(i=0;i<Teki_NUM;i++)
         {
-            if(teki_attack[i].flag==1)//“G‚ÌUŒ‚
+            if(teki_attack[i].flag==1)//æ•µã®æ”»æ’ƒ
                 Attack_teki(i);
             if(item[i].flag==1)
-                PutTeki(i,1);//ƒAƒCƒeƒ€‚Ì•\¦
+                PutTeki(i,1);//ã‚¢ã‚¤ãƒ†ãƒ ã®è¡¨ç¤º
             if(teki[i].flag==1)
-                PutTeki(i,0);//“G‚Ì•\¦
+                PutTeki(i,0);//æ•µã®è¡¨ç¤º
         }
     }
     for(i=0;i<Attack_NUM;i++)
     {
-        if(i!=0)//–‚–@‚Ìc‚èg—p‰ñ”‚ğ•\¦
+        if(i!=0)//é­”æ³•ã®æ®‹ã‚Šä½¿ç”¨å›æ•°ã‚’è¡¨ç¤º
             PutMagic(i);
         if(attack[i].flag==1)
             Attack(i);
@@ -418,18 +418,18 @@ void Timer(int value)
 {
     glutTimerFunc(24,Timer,0);
 
-    if(pause_flag==0)//ƒQ[ƒ€Às’†
+    if(pause_flag==0)//ã‚²ãƒ¼ãƒ å®Ÿè¡Œä¸­
     {
-        Kabe_hantei(0,0);//char‚Ì•Ç”»’è
+        Kabe_hantei(0,0);//charã®å£åˆ¤å®š
 
-        if(right_end_flag==1)//ƒ{ƒXí
+        if(right_end_flag==1)//ãƒœã‚¹æˆ¦
             Boss_hantei();
         else if(boss.flag==0)
-            Teki_hantei();//“G‚Æ‚ÌÕ“Ë‚âUŒ‚AƒAƒCƒeƒ€‚Ì”»’è‚Ìˆ—
+            Teki_hantei();//æ•µã¨ã®è¡çªã‚„æ”»æ’ƒã€ã‚¢ã‚¤ãƒ†ãƒ ã®åˆ¤å®šã®å‡¦ç†
 
-        if(y_char+Char_Size>=WindowHeight-Char_Size)//‰º‚Ü‚Å—‚¿‚½‚Æ‚«
+        if(y_char+Char_Size>=WindowHeight-Char_Size)//ä¸‹ã¾ã§è½ã¡ãŸã¨ã
         {
-            //+++++++++++++++++++—‚¿‚½++++++++++++++++++++++++++
+            //+++++++++++++++++++è½ã¡ãŸ++++++++++++++++++++++++++
             Stage_Change();
         }
 
@@ -438,18 +438,18 @@ void Timer(int value)
         if(walk_count==20)
         {
             walk_count=0;
-            walk_flag=walk_flag^1;//•àsŠGØ‚è‘Ö‚¦
+            walk_flag=walk_flag^1;//æ­©è¡Œçµµåˆ‡ã‚Šæ›¿ãˆ
         }
         
-        if(die_t!=0)//€‚ñ‚¾‚Æ‚«
+        if(die_t!=0)//æ­»ã‚“ã ã¨ã
             Die();
     }
-    else if(stage==0 && change_flag==0)//ƒ^ƒCƒgƒ‹‰æ–Ê
+    else if(stage==0 && change_flag==0)//ã‚¿ã‚¤ãƒˆãƒ«ç”»é¢
     {
         Stage_Change();
         change_flag=1;
     }
-    else if(clear_flag==1)//ƒNƒŠƒAŒã‚Ìˆ—
+    else if(clear_flag==1)//ã‚¯ãƒªã‚¢å¾Œã®å‡¦ç†
     {
         Game_Clear();
     }
@@ -465,7 +465,7 @@ void Reshape(int w,int h)
     glTranslated(0,-h,0);
     glutReshapeWindow(WindowWidth,WindowHeight);
 }
-void PutMap(char map,int x,int y,int n)//ƒ}ƒbƒv•\¦
+void PutMap(char map,int x,int y,int n)//ãƒãƒƒãƒ—è¡¨ç¤º
 {
     int tex;
 
@@ -477,9 +477,9 @@ void PutMap(char map,int x,int y,int n)//ƒ}ƒbƒv•\¦
         default : printf("ERROR\n");exit(1);
     };
 
-    if(x_char >= Char_Size*(MapWidth-11) || right_end_flag==1)//‰æ–Ê‰E’[
-        x*=map_info->Width;//‰E’[‚Ü‚Ås‚­‚Æˆø‚«•Ô‚¹‚È‚­‚È‚é
-    else if(x_char>=WindowWidth/2)//ƒXƒNƒ[ƒ‹
+    if(x_char >= Char_Size*(MapWidth-11) || right_end_flag==1)//ç”»é¢å³ç«¯
+        x*=map_info->Width;//å³ç«¯ã¾ã§è¡Œãã¨å¼•ãè¿”ã›ãªããªã‚‹
+    else if(x_char>=WindowWidth/2)//ã‚¹ã‚¯ãƒ­ãƒ¼ãƒ«
         x=x*Char_Size+WindowWidth/2-x_char+n*Char_Size;
     else
         x*=map_info->Width;
@@ -488,39 +488,39 @@ void PutMap(char map,int x,int y,int n)//ƒ}ƒbƒv•\¦
         
     PutSprite(x,y,Char_Size,Char_Size);
 }
-void PutChar(void)//ƒLƒƒƒ‰•\¦
+void PutChar(void)//ã‚­ãƒ£ãƒ©è¡¨ç¤º
 {
     int x;
     int tex;
-    if(x_char >= Char_Size*(MapWidth-11) || right_end_flag==1)//‰æ–Ê‰E’[
+    if(x_char >= Char_Size*(MapWidth-11) || right_end_flag==1)//ç”»é¢å³ç«¯
     {
         x=x_char-Char_Size*(MapWidth-21);
-        if(stage==2 && right_end_flag==0)//stage2‚Ì‚İƒ{ƒXí‚ÅƒJƒƒ‰ŒÅ’è‚Ì‚½‚ß
+        if(stage==2 && right_end_flag==0)//stage2ã®ã¿ãƒœã‚¹æˆ¦ã§ã‚«ãƒ¡ãƒ©å›ºå®šã®ãŸã‚
         {
-            right_end_flag=1;//‰E’[‚Ü‚Ås‚­‚Æˆø‚«•Ô‚¹‚È‚­‚È‚é
-            boss.flag=1;//ƒ{ƒXoŒ»
-            map[11][78]='C';//ƒ{ƒXí‚Å•Ç¶¬
+            right_end_flag=1;//å³ç«¯ã¾ã§è¡Œãã¨å¼•ãè¿”ã›ãªããªã‚‹
+            boss.flag=1;//ãƒœã‚¹å‡ºç¾
+            map[11][78]='C';//ãƒœã‚¹æˆ¦ã§å£ç”Ÿæˆ
             map[12][78]='C';
             map[11][99]='C';
         }
     }
-    else if(x_char>=WindowWidth/2)//ƒXƒNƒ[ƒ‹
+    else if(x_char>=WindowWidth/2)//ã‚¹ã‚¯ãƒ­ãƒ¼ãƒ«
         x=WindowWidth/2;
     else
         x=x_char;
 
-    tex=walk_flag;//•\¦‰æ‘œ(•à‚¢‚Ä‚¢‚é)
-    if(die_t!=0)//€‚ñ‚Å‚¢‚é‚©‚Ç‚¤‚©
-        tex=2;//€‚ñ‚¾‰æ‘œ
+    tex=walk_flag;//è¡¨ç¤ºç”»åƒ(æ­©ã„ã¦ã„ã‚‹)
+    if(die_t!=0)//æ­»ã‚“ã§ã„ã‚‹ã‹ã©ã†ã‹
+        tex=2;//æ­»ã‚“ã ç”»åƒ
 
     glBindTexture(GL_TEXTURE_2D, Char_texture[tex]);
 
     if(direction==2)
-        PutSprite_RE(x,y_char,Char_Size,Char_Size);//‰æ‘œ”½“]
+        PutSprite_RE(x,y_char,Char_Size,Char_Size);//ç”»åƒåè»¢
     else
-        PutSprite(x,y_char,Char_Size,Char_Size);//‰æ‘œ“\‚è•t‚¯
+        PutSprite(x,y_char,Char_Size,Char_Size);//ç”»åƒè²¼ã‚Šä»˜ã‘
 }
-void PutTeki(int n,int what)//“G•\¦,ƒAƒCƒeƒ€•\¦,ƒ{ƒX•\¦
+void PutTeki(int n,int what)//æ•µè¡¨ç¤º,ã‚¢ã‚¤ãƒ†ãƒ è¡¨ç¤º,ãƒœã‚¹è¡¨ç¤º
 {
     int x,y,size;
     int direction;
@@ -531,7 +531,7 @@ void PutTeki(int n,int what)//“G•\¦,ƒAƒCƒeƒ€•\¦,ƒ{ƒX•\¦
         case 0:x=teki[n].x;y=teki[n].y;texture=teki[n].texture[teki[n].walk_flag];size=Char_Size;direction=teki[n].direction;break;
         case 1:x=item[n].x;y=item[n].y;texture=item[n].texture[0];size=Char_Size;break;
         case 2:x=boss.x;y=boss.y;texture=boss.texture[boss.walk_flag];size=Boss_Size;direction=boss.direction;
-                if(boss.nodamage_t%10>7)//ƒ{ƒX‚ÉUŒ‚‚µ‚½Œã‚Ì–³“GŠÔ‚Å‚Íƒ{ƒX‚ª“_–Å‚·‚é
+                if(boss.nodamage_t%10>7)//ãƒœã‚¹ã«æ”»æ’ƒã—ãŸå¾Œã®ç„¡æ•µæ™‚é–“ã§ã¯ãƒœã‚¹ãŒç‚¹æ»…ã™ã‚‹
                     return;
                 break;
     };
@@ -543,42 +543,42 @@ void PutTeki(int n,int what)//“G•\¦,ƒAƒCƒeƒ€•\¦,ƒ{ƒX•\¦
 
     glBindTexture(GL_TEXTURE_2D, texture);
 
-    if(direction==2 && what!=1)//“G‚Æƒ{ƒX‚Í•ûŒü“]Š·‚ ‚è
-        PutSprite_RE(x,y,size,size);//‰æ‘œ”½“]
+    if(direction==2 && what!=1)//æ•µã¨ãƒœã‚¹ã¯æ–¹å‘è»¢æ›ã‚ã‚Š
+        PutSprite_RE(x,y,size,size);//ç”»åƒåè»¢
     else
         PutSprite(x,y,size,size);
 }
-void PutMagic(int n)//c‚è–‚–@g—p‰ñ”•\¦
+void PutMagic(int n)//æ®‹ã‚Šé­”æ³•ä½¿ç”¨å›æ•°è¡¨ç¤º
 {
     int x,y;
 
     x=0;
     y=Char_Size*(n-1);
     
-    glBindTexture(GL_TEXTURE_2D, item_texture[n-1]);//c‚èg—p‰ñ”‚Ì”wŒi
+    glBindTexture(GL_TEXTURE_2D, item_texture[n-1]);//æ®‹ã‚Šä½¿ç”¨å›æ•°ã®èƒŒæ™¯
     PutSprite(x,y,Char_Size,Char_Size);
-    glBindTexture(GL_TEXTURE_2D, num_texture[attack[n].limit]);//c‚èg—p‰ñ”
+    glBindTexture(GL_TEXTURE_2D, num_texture[attack[n].limit]);//æ®‹ã‚Šä½¿ç”¨å›æ•°
     PutSprite(x,y,Char_Size,Char_Size);
 }
-void PutLife()//ƒ{ƒX‚Ìc‚èƒ‰ƒCƒt•\¦
+void PutLife()//ãƒœã‚¹ã®æ®‹ã‚Šãƒ©ã‚¤ãƒ•è¡¨ç¤º
 {
     int x,y,i;
 
     x=WindowWidth;
     y=0;
     
-    for(i=1;i<=boss.life;i++)//c‚èƒ‰ƒCƒt‚Ì•ªƒn[ƒg‚ğ•\¦
+    for(i=1;i<=boss.life;i++)//æ®‹ã‚Šãƒ©ã‚¤ãƒ•ã®åˆ†ãƒãƒ¼ãƒˆã‚’è¡¨ç¤º
     {
-        glBindTexture(GL_TEXTURE_2D, life_texture);//c‚èg—p‰ñ”‚Ì”wŒi
+        glBindTexture(GL_TEXTURE_2D, life_texture);//æ®‹ã‚Šä½¿ç”¨å›æ•°ã®èƒŒæ™¯
         if(i<=10)
-            PutSprite(x-Life_Size*i,y,Life_Size,Life_Size);//1’i–Ú
+            PutSprite(x-Life_Size*i,y,Life_Size,Life_Size);//1æ®µç›®
         else
-            PutSprite(x-Life_Size*(i-10),y+Life_Size,Life_Size,Life_Size);//2’i–Ú
+            PutSprite(x-Life_Size*(i-10),y+Life_Size,Life_Size,Life_Size);//2æ®µç›®
     }
 }
-void PutSprite(int x,int y,int width,int height)//‰æ‘œ“\‚è•t‚¯
+void PutSprite(int x,int y,int width,int height)//ç”»åƒè²¼ã‚Šä»˜ã‘
 {
-    //‰æ‘œ“\‚è•t‚¯
+    //ç”»åƒè²¼ã‚Šä»˜ã‘
     glPushMatrix();
     glEnable(GL_TEXTURE_2D);
 
@@ -591,13 +591,13 @@ void PutSprite(int x,int y,int width,int height)//‰æ‘œ“\‚è•t‚¯
     glDisable(GL_TEXTURE_2D);
     glPopMatrix();
 }
-void PutSprite_RE(int x,int y,int width,int height)//”½“]‚µ‚Ä‰æ‘œ“\‚è•t‚¯
+void PutSprite_RE(int x,int y,int width,int height)//åè»¢ã—ã¦ç”»åƒè²¼ã‚Šä»˜ã‘
 {
     glPushMatrix();
     glEnable(GL_TEXTURE_2D);
 
         glBegin(GL_QUADS);
-        //+++++++++++++++++++‰æ‘œ‚Ì‰¡•ûŒü‚É”½“]‚³‚¹‚Ä‚¢‚é+++++++++++++++
+        //+++++++++++++++++++ç”»åƒã®æ¨ªæ–¹å‘ã«åè»¢ã•ã›ã¦ã„ã‚‹+++++++++++++++
         glTexCoord2f(0, 1); glVertex2i(x + width , y + height);
         glTexCoord2f(0, 0); glVertex2i(x + width , y);
         glTexCoord2f(1, 0); glVertex2i(x , y);
@@ -607,7 +607,7 @@ void PutSprite_RE(int x,int y,int width,int height)//”½“]‚µ‚Ä‰æ‘œ“\‚è•t‚¯
     glPopMatrix();
 }
 
-void Attack(int what)//UŒ‚ˆ—
+void Attack(int what)//æ”»æ’ƒå‡¦ç†
 {
     if(what==0)//sword
     {
@@ -628,7 +628,7 @@ void Attack(int what)//UŒ‚ˆ—
     }
     else if(what==1 || what==2)//fire,ice
     {
-        if(attack[what].t==0)//Œ‚‚Á‚½’¼Œã
+        if(attack[what].t==0)//æ’ƒã£ãŸç›´å¾Œ
         {
             attack[what].y=y_char;
             if(direction==2)
@@ -641,7 +641,7 @@ void Attack(int what)//UŒ‚ˆ—
                 attack[what].x=x_char-Char_Size;
                 attack[what].direction=3;
             }
-            if(what==3)//ice‚Ìê‡ã¸‚·‚é
+            if(what==3)//iceã®å ´åˆä¸Šæ˜‡ã™ã‚‹
                 attack[what].y=y_char-Char_Size;
         }
         else
@@ -665,7 +665,7 @@ void Attack(int what)//UŒ‚ˆ—
     }
     else if(what==3)//thunder
     {
-        if(attack[what].t==0)//Œ‚‚Á‚½’¼Œã
+        if(attack[what].t==0)//æ’ƒã£ãŸç›´å¾Œ
         {
             attack[what].y=0;
             attack[what].x=x_char;
@@ -693,33 +693,33 @@ void Attack(int what)//UŒ‚ˆ—
         }
     }
 }
-void Attack_teki(int n)//“G‚ÌUŒ‚ˆ—
+void Attack_teki(int n)//æ•µã®æ”»æ’ƒå‡¦ç†
 {
     float temp;
 
 
-    if(teki_attack[n].t==0)//Œ‚‚Á‚½’¼Œã
+    if(teki_attack[n].t==0)//æ’ƒã£ãŸç›´å¾Œ
     {
         teki_attack[n].y_sum=teki[n].y;
 
-        if(teki[n].direction==2)//‰EŒü‚«
+        if(teki[n].direction==2)//å³å‘ã
         {
             teki_attack[n].x_sum=teki[n].x+Char_Size;
             teki_attack[n].direction=2;
         }
-        else//¶Œü‚«
+        else//å·¦å‘ã
         {
             teki_attack[n].x_sum=teki[n].x-Char_Size;
             teki_attack[n].direction=3;
         }
 
-        if(n%4==2)//ƒf[ƒ‚ƒ“
+        if(n%4==2)//ãƒ‡ãƒ¼ãƒ¢ãƒ³
         {
-            temp=atan((float)(y_char-teki_attack[n].y_sum)/(float)(x_char-teki_attack[n].x_sum));//Šp“x‚ğ‹‚ß‚é
-            teki_attack[n].x_move=((float)(x_char-teki_attack[n].x_sum))/50;//x‚Í50‰ñˆÚ“®‚ÅƒLƒƒƒ‰‚É“’B
-            teki_attack[n].y_move=tan(temp)*teki_attack[n].x_move;//y‚ÌˆÚ“®—Ê
+            temp=atan((float)(y_char-teki_attack[n].y_sum)/(float)(x_char-teki_attack[n].x_sum));//è§’åº¦ã‚’æ±‚ã‚ã‚‹
+            teki_attack[n].x_move=((float)(x_char-teki_attack[n].x_sum))/50;//xã¯50å›ç§»å‹•ã§ã‚­ãƒ£ãƒ©ã«åˆ°é”
+            teki_attack[n].y_move=tan(temp)*teki_attack[n].x_move;//yã®ç§»å‹•é‡
         }
-        else if(n%4==3)//ƒEƒBƒU[ƒh
+        else if(n%4==3)//ã‚¦ã‚£ã‚¶ãƒ¼ãƒ‰
         {
             if(teki[n].direction==2)
                 teki_attack[n].x_move=Step*2;
@@ -730,15 +730,15 @@ void Attack_teki(int n)//“G‚ÌUŒ‚ˆ—
     }
     else
     {
-        //ˆÚ“®Œã‚Ìx,y‚ğŒvZ
+        //ç§»å‹•å¾Œã®x,yã‚’è¨ˆç®—
             teki_attack[n].x_sum+=teki_attack[n].x_move;
             teki_attack[n].y_sum+=teki_attack[n].y_move;
     }
-    //x,y‚ÌˆÊ’u‚ğ‘ã“ü
+    //x,yã®ä½ç½®ã‚’ä»£å…¥
     teki_attack[n].x=(int)teki_attack[n].x_sum;
     teki_attack[n].y=(int)teki_attack[n].y_sum;
 
-    Anime(-1,n,0);//ƒAƒjƒ‚ğ•\¦
+    Anime(-1,n,0);//ã‚¢ãƒ‹ãƒ¡ã‚’è¡¨ç¤º
     teki_attack[n].t++;
     
     if(teki_attack[n].t>=60)
@@ -747,98 +747,98 @@ void Attack_teki(int n)//“G‚ÌUŒ‚ˆ—
         teki_attack[n].flag=0;
     }
 }
-void Attack_boss(int n)//ƒ{ƒX‚ÌUŒ‚ˆ—
+void Attack_boss(int n)//ãƒœã‚¹ã®æ”»æ’ƒå‡¦ç†
 {
     int i;
 
-    if(boss_attack[n].t==0)//Œ‚‚Á‚½’¼Œã
+    if(boss_attack[n].t==0)//æ’ƒã£ãŸç›´å¾Œ
     {
-        if(n==0)//ƒ_[ƒNƒTƒ“ƒ_[‚Ìê‡
+        if(n==0)//ãƒ€ãƒ¼ã‚¯ã‚µãƒ³ãƒ€ãƒ¼ã®å ´åˆ
         {
-            boss_attack[n].x[0]=x_char;boss_attack[n].y[0]=0;//oŒ»ˆÊ’u
+            boss_attack[n].x[0]=x_char;boss_attack[n].y[0]=0;//å‡ºç¾ä½ç½®
             boss_attack[n].x[1]=x_char-Char_Size;boss_attack[n].y[1]=0;
             boss_attack[n].x[2]=x_char+Char_Size;boss_attack[n].y[2]=0;
             boss_attack[n].direction=boss.direction;
-            boss_attack[n].x_move[0]=0;boss_attack[n].y_move[0]=0;//ˆÚ“®—Ê
+            boss_attack[n].x_move[0]=0;boss_attack[n].y_move[0]=0;//ç§»å‹•é‡
             boss_attack[n].x_move[1]=0;boss_attack[n].y_move[1]=0;
             boss_attack[n].x_move[2]=0;boss_attack[n].y_move[2]=0;
         }
-        else if(n==1 || n==2)//ƒuƒ‹[ƒtƒ@ƒCƒA‚ÆƒEƒH[ƒ^[ƒoƒ‹[ƒ“‚Ìê‡
+        else if(n==1 || n==2)//ãƒ–ãƒ«ãƒ¼ãƒ•ã‚¡ã‚¤ã‚¢ã¨ã‚¦ã‚©ãƒ¼ã‚¿ãƒ¼ãƒãƒ«ãƒ¼ãƒ³ã®å ´åˆ
         {
-            boss_attack[n].y[0]=boss.y+Char_Size;//oŒ»ˆÊ’u
+            boss_attack[n].y[0]=boss.y+Char_Size;//å‡ºç¾ä½ç½®
             boss_attack[n].y[1]=boss.y+Char_Size;
             boss_attack[n].y[2]=boss.y+Char_Size;
 
-            if(boss.direction==2)//‰EŒü‚«
+            if(boss.direction==2)//å³å‘ã
             {
-                boss_attack[n].x[0]=boss.x+Boss_Size;//oŒ»ˆÊ’u
+                boss_attack[n].x[0]=boss.x+Boss_Size;//å‡ºç¾ä½ç½®
                 boss_attack[n].x[1]=boss.x+Boss_Size;
                 boss_attack[n].x[2]=boss.x+Boss_Size;
                 boss_attack[n].direction=2;
-                boss_attack[n].x_move[0]=Step;//ˆÚ“®—Ê
+                boss_attack[n].x_move[0]=Step;//ç§»å‹•é‡
                 boss_attack[n].x_move[1]=Step;
                 boss_attack[n].x_move[2]=Step;
             }
-            else//¶Œü‚«
+            else//å·¦å‘ã
             {
-                boss_attack[n].x[0]=boss.x-Char_Size;//oŒ»ˆÊ’u
+                boss_attack[n].x[0]=boss.x-Char_Size;//å‡ºç¾ä½ç½®
                 boss_attack[n].x[1]=boss.x-Char_Size;
                 boss_attack[n].x[2]=boss.x-Char_Size;
                 boss_attack[n].direction=3;
-                boss_attack[n].x_move[0]=-1*Step;//ˆÚ“®—Ê
+                boss_attack[n].x_move[0]=-1*Step;//ç§»å‹•é‡
                 boss_attack[n].x_move[1]=-1*Step;
                 boss_attack[n].x_move[2]=-1*Step;
             }
             boss_attack[n].y_move[0]=0;
             boss_attack[n].y_move[1]=0;
             boss_attack[n].y_move[2]=0;
-            if(n==2)//ƒEƒH[ƒ^[ƒoƒ‹[ƒ“‚Ìê‡‚Í1‚Â–Ú‚Ì…‹Ê‚Ì‚İ“®‚«n‚ß‚é
+            if(n==2)//ã‚¦ã‚©ãƒ¼ã‚¿ãƒ¼ãƒãƒ«ãƒ¼ãƒ³ã®å ´åˆã¯1ã¤ç›®ã®æ°´ç‰ã®ã¿å‹•ãå§‹ã‚ã‚‹
             {
                 boss_attack[n].x_move[1]=0;
                 boss_attack[n].x_move[2]=0;
             }
         }
-        else//ƒƒeƒI‚Ìê‡
-        {//oŒ»ˆÊ’u‚Íƒ‰ƒ“ƒ_ƒ€
+        else//ãƒ¡ãƒ†ã‚ªã®å ´åˆ
+        {//å‡ºç¾ä½ç½®ã¯ãƒ©ãƒ³ãƒ€ãƒ 
             boss_attack[n].x[0]=Char_Size*79 + Char_Size*(int)(20*(random()/(double)(RAND_MAX+1.0)));boss_attack[n].y[0]=0;
             boss_attack[n].x[1]=Char_Size*79 + Char_Size*(int)(20*(random()/(double)(RAND_MAX+1.0)));boss_attack[n].y[1]=0;
             boss_attack[n].x[2]=Char_Size*79 + Char_Size*(int)(20*(random()/(double)(RAND_MAX+1.0)));boss_attack[n].y[2]=0;
             boss_attack[n].direction=boss.direction;
-            boss_attack[n].x_move[0]=0;boss_attack[n].y_move[0]=Step*4;//ˆÚ“®—Ê
+            boss_attack[n].x_move[0]=0;boss_attack[n].y_move[0]=Step*4;//ç§»å‹•é‡
             boss_attack[n].x_move[1]=0;boss_attack[n].y_move[1]=Step*4;
             boss_attack[n].x_move[2]=0;boss_attack[n].y_move[2]=Step*4;
         }
     }
     else
     {
-        if(boss_attack[n].t==6 && n==0)//ƒ_[ƒNƒTƒ“ƒ_[—‰ºŠJn
+        if(boss_attack[n].t==6 && n==0)//ãƒ€ãƒ¼ã‚¯ã‚µãƒ³ãƒ€ãƒ¼è½ä¸‹é–‹å§‹
         {
             boss_attack[n].y_move[0]=Step*3;
             boss_attack[n].y_move[1]=Step*3;
             boss_attack[n].y_move[2]=Step*3;
         }
-        else if(boss_attack[n].t==20 && n==1)//ƒuƒ‹[ƒtƒ@ƒCƒA‹O“¹•Ï‰»
+        else if(boss_attack[n].t==20 && n==1)//ãƒ–ãƒ«ãƒ¼ãƒ•ã‚¡ã‚¤ã‚¢è»Œé“å¤‰åŒ–
         {
-            boss_attack[n].y_move[0]=0;//3•ûŒü‚É”ò‚Ô
+            boss_attack[n].y_move[0]=0;//3æ–¹å‘ã«é£›ã¶
             boss_attack[n].y_move[1]=-1*Step;
             boss_attack[n].y_move[2]=-1*Step;boss_attack[n].x_move[2]=0;
         }
-        else if(n==2)//ƒEƒH[ƒ^[ƒoƒ‹[ƒ“‹O“¹•Ï‰»
+        else if(n==2)//ã‚¦ã‚©ãƒ¼ã‚¿ãƒ¼ãƒãƒ«ãƒ¼ãƒ³è»Œé“å¤‰åŒ–
         {
-            switch(boss_attack[n].t)//ŠÔ·‚Å2”­–Ú‚Æ3”­–Ú‚ª“®‚«o‚·
+            switch(boss_attack[n].t)//æ™‚é–“å·®ã§2ç™ºç›®ã¨3ç™ºç›®ãŒå‹•ãå‡ºã™
             {
                 case 10 : boss_attack[n].x_move[1]=Step;if(boss_attack[n].direction==3)boss_attack[n].x_move[1]*=-1;break;
                 case 20 : boss_attack[n].x_move[2]=Step;if(boss_attack[n].direction==3)boss_attack[n].x_move[2]*=-1;break;
             };
         }
-        //ˆÚ“®Œã‚Ìx,y‚ğŒvZ
+        //ç§»å‹•å¾Œã®x,yã‚’è¨ˆç®—
         boss_attack[n].x[0]+=boss_attack[n].x_move[0];boss_attack[n].y[0]+=boss_attack[n].y_move[0];
         boss_attack[n].x[1]+=boss_attack[n].x_move[1];boss_attack[n].y[1]+=boss_attack[n].y_move[1];
         boss_attack[n].x[2]+=boss_attack[n].x_move[2];boss_attack[n].y[2]+=boss_attack[n].y_move[2];
     }
 
     for(i=0;i<3;i++)
-        Anime(-2,n,i);//ƒAƒjƒ‚ğ•\¦
+        Anime(-2,n,i);//ã‚¢ãƒ‹ãƒ¡ã‚’è¡¨ç¤º
     boss_attack[n].t++;
     
     if(boss_attack[n].t>=90)
@@ -847,19 +847,19 @@ void Attack_boss(int n)//ƒ{ƒX‚ÌUŒ‚ˆ—
         boss_attack[n].flag=0;
     }
 }
-void Anime(int what,int teki_n,int boss_n)//UŒ‚‚È‚Ç‚ÌƒAƒjƒ
+void Anime(int what,int teki_n,int boss_n)//æ”»æ’ƒãªã©ã®ã‚¢ãƒ‹ãƒ¡
 {
     int x,y,tex,t_tmp,attack_direction;
     GLuint texture;
 
-    if(x_char>=WindowWidth/2)//ƒXƒNƒ[ƒ‹‚Í‚¶‚ß‚ÌêŠ
+    if(x_char>=WindowWidth/2)//ã‚¹ã‚¯ãƒ­ãƒ¼ãƒ«ã¯ã˜ã‚ã®å ´æ‰€
         x=attack[what].x-x_char+WindowWidth/2;
     else
         x=attack[what].x;
 
-    if(what>=0)//ƒLƒƒƒ‰‚ÌUŒ‚
+    if(what>=0)//ã‚­ãƒ£ãƒ©ã®æ”»æ’ƒ
     {
-        if(x_char >= Char_Size*(MapWidth-11) || right_end_flag==1)//ƒXƒNƒ[ƒ‹I‚í‚è‚ÌêŠ
+        if(x_char >= Char_Size*(MapWidth-11) || right_end_flag==1)//ã‚¹ã‚¯ãƒ­ãƒ¼ãƒ«çµ‚ã‚ã‚Šã®å ´æ‰€
         {
             if(what==0)//sword
             {
@@ -883,22 +883,22 @@ void Anime(int what,int teki_n,int boss_n)//UŒ‚‚È‚Ç‚ÌƒAƒjƒ
             else if(attack[what].t<=9)
                 tex=2;
         }
-        else//ƒtƒ@ƒCƒAAƒAƒCƒXAƒTƒ“ƒ_[
+        else//ãƒ•ã‚¡ã‚¤ã‚¢ã€ã‚¢ã‚¤ã‚¹ã€ã‚µãƒ³ãƒ€ãƒ¼
         {
-            if(what==3)//ƒTƒ“ƒ_[—p
+            if(what==3)//ã‚µãƒ³ãƒ€ãƒ¼ç”¨
                 t_tmp=attack[what].t%2+1;
-            else//ƒtƒ@ƒCƒA‚ÆƒAƒCƒX—p
+            else//ãƒ•ã‚¡ã‚¤ã‚¢ã¨ã‚¢ã‚¤ã‚¹ç”¨
                 t_tmp=attack[what].t%3;
 
-            if(attack[what].t<5 && what==3)//ƒTƒ“ƒ_[‚Ìê‡‚ÍÅ‰‚¾‚¯Œõ‚Á‚½‰æ‘œ
+            if(attack[what].t<5 && what==3)//ã‚µãƒ³ãƒ€ãƒ¼ã®å ´åˆã¯æœ€åˆã ã‘å…‰ã£ãŸç”»åƒ
                 tex=0;
             else
                 tex=t_tmp;
         }
     }
-    else if(what==-1)//“G‚ÌUŒ‚
+    else if(what==-1)//æ•µã®æ”»æ’ƒ
     {
-        if(x_char>=WindowWidth/2)//ƒXƒNƒ[ƒ‹‚Í‚¶‚ß‚ÌêŠ
+        if(x_char>=WindowWidth/2)//ã‚¹ã‚¯ãƒ­ãƒ¼ãƒ«ã¯ã˜ã‚ã®å ´æ‰€
             x=teki_attack[teki_n].x-x_char+WindowWidth/2;
         else
             x=teki_attack[teki_n].x;
@@ -910,44 +910,44 @@ void Anime(int what,int teki_n,int boss_n)//UŒ‚‚È‚Ç‚ÌƒAƒjƒ
             tex=1;
         else if(t_tmp==2)
             tex=2;
-        if(x_char >= Char_Size*(MapWidth-11) || right_end_flag==1)//ƒXƒNƒ[ƒ‹I‚í‚è‚ÌêŠ
+        if(x_char >= Char_Size*(MapWidth-11) || right_end_flag==1)//ã‚¹ã‚¯ãƒ­ãƒ¼ãƒ«çµ‚ã‚ã‚Šã®å ´æ‰€
             x=teki_attack[teki_n].x-Char_Size*(MapWidth-21);
     }
-    else if(what==-2)//ƒ{ƒX‚ÌUŒ‚
+    else if(what==-2)//ãƒœã‚¹ã®æ”»æ’ƒ
     {
-        if(x_char>=WindowWidth/2)//ƒXƒNƒ[ƒ‹‚Í‚¶‚ß‚ÌêŠ
+        if(x_char>=WindowWidth/2)//ã‚¹ã‚¯ãƒ­ãƒ¼ãƒ«ã¯ã˜ã‚ã®å ´æ‰€
             x=boss_attack[teki_n].x[boss_n]-x_char+WindowWidth/2;
         else
             x=boss_attack[teki_n].x[boss_n];
         
-        if(teki_n==0)//ƒ_[ƒNƒTƒ“ƒ_[—p
+        if(teki_n==0)//ãƒ€ãƒ¼ã‚¯ã‚µãƒ³ãƒ€ãƒ¼ç”¨
             t_tmp=boss_attack[teki_n].t%2+1;
-        else//ƒuƒ‹[ƒtƒ@ƒCƒA‚ÆƒEƒH[ƒ^[ƒoƒ‹[ƒ“‚ÆƒƒeƒI—p
+        else//ãƒ–ãƒ«ãƒ¼ãƒ•ã‚¡ã‚¤ã‚¢ã¨ã‚¦ã‚©ãƒ¼ã‚¿ãƒ¼ãƒãƒ«ãƒ¼ãƒ³ã¨ãƒ¡ãƒ†ã‚ªç”¨
             t_tmp=boss_attack[teki_n].t%3;
 
-        if(boss_attack[teki_n].t<5 && teki_n==0)//ƒ_[ƒNƒTƒ“ƒ_[‚Ìê‡‚ÍÅ‰‚¾‚¯Œõ‚Á‚½‰æ‘œ
+        if(boss_attack[teki_n].t<5 && teki_n==0)//ãƒ€ãƒ¼ã‚¯ã‚µãƒ³ãƒ€ãƒ¼ã®å ´åˆã¯æœ€åˆã ã‘å…‰ã£ãŸç”»åƒ
             tex=0;
-        else if(t_tmp==0 && teki_n==1)//ƒuƒ‹[ƒtƒ@ƒCƒA—p
+        else if(t_tmp==0 && teki_n==1)//ãƒ–ãƒ«ãƒ¼ãƒ•ã‚¡ã‚¤ã‚¢ç”¨
             tex=0;
         else
             tex=t_tmp;
-        if(x_char >= Char_Size*(MapWidth-11) || right_end_flag==1)//ƒXƒNƒ[ƒ‹I‚í‚è‚ÌêŠ
+        if(x_char >= Char_Size*(MapWidth-11) || right_end_flag==1)//ã‚¹ã‚¯ãƒ­ãƒ¼ãƒ«çµ‚ã‚ã‚Šã®å ´æ‰€
             x=boss_attack[teki_n].x[boss_n]-Char_Size*(MapWidth-21);
     }
 
-    if(what>=0)//ƒLƒƒƒ‰‚ÌUŒ‚‚Ì‚Æ‚«
+    if(what>=0)//ã‚­ãƒ£ãƒ©ã®æ”»æ’ƒã®ã¨ã
     {
         attack_direction=attack[what].direction;
         texture=attack[what].texture[tex];
         y=attack[what].y;
     }
-    else if(what==-1)//“G‚ÌUŒ‚‚Ì‚Æ‚«
+    else if(what==-1)//æ•µã®æ”»æ’ƒã®ã¨ã
     {
         attack_direction=teki_attack[teki_n].direction;
         texture=teki_attack[teki_n].texture[tex];
         y=teki_attack[teki_n].y;
     }
-    else if(what==-2)//ƒ{ƒX‚ÌUŒ‚‚Ì‚Æ‚«
+    else if(what==-2)//ãƒœã‚¹ã®æ”»æ’ƒã®ã¨ã
     {
         attack_direction=boss_attack[teki_n].direction;
         texture=boss_attack[teki_n].texture[tex];
@@ -956,113 +956,113 @@ void Anime(int what,int teki_n,int boss_n)//UŒ‚‚È‚Ç‚ÌƒAƒjƒ
 
     glBindTexture(GL_TEXTURE_2D,texture);
 
-    if(attack_direction==2)//‰E•ûŒü
+    if(attack_direction==2)//å³æ–¹å‘
     {
         PutSprite(x,y,Char_Size,Char_Size);
     }
-    else//¶•ûŒü
+    else//å·¦æ–¹å‘
     {
-        PutSprite_RE(x,y,Char_Size,Char_Size);//‰æ‘œ”½“]
+        PutSprite_RE(x,y,Char_Size,Char_Size);//ç”»åƒåè»¢
     }
 }
-void Teki_hantei(void)//++++++++++++++++++“G‚Æ‚ÌÕ“Ë‚âUŒ‚AƒAƒCƒeƒ€‚Ì”»’è‚È‚Ç+++++++++++
+void Teki_hantei(void)//++++++++++++++++++æ•µã¨ã®è¡çªã‚„æ”»æ’ƒã€ã‚¢ã‚¤ãƒ†ãƒ ã®åˆ¤å®šãªã©+++++++++++
 {
     int i,j;
     
-    //++++++++++++++++++++++++++++++++“G‚ÆƒAƒCƒeƒ€‚Ìˆ—+++++++‚¯‚Á‚±‚¤‚â‚â‚±‚µ‚¢+++++
-    for(i=0;i<Teki_NUM;i++)//‰æ–ÊŠO‚Ì“G‚Í•`‰æ‚µ‚½‚­‚È‚¢‚½‚ß‚Ìˆ—
+    //++++++++++++++++++++++++++++++++æ•µã¨ã‚¢ã‚¤ãƒ†ãƒ ã®å‡¦ç†+++++++ã‘ã£ã“ã†ã‚„ã‚„ã“ã—ã„+++++
+    for(i=0;i<Teki_NUM;i++)//ç”»é¢å¤–ã®æ•µã¯æç”»ã—ãŸããªã„ãŸã‚ã®å‡¦ç†
     {
-        //+++++++“G‚Ìˆ—+++++++++++++++++++++++++++++++++++++++++++++++++
-        if(//‰æ–Ê“à‚É“G‚ª‚¢‚é
+        //+++++++æ•µã®å‡¦ç†+++++++++++++++++++++++++++++++++++++++++++++++++
+        if(//ç”»é¢å†…ã«æ•µãŒã„ã‚‹
             (teki[i].x<WindowWidth && x_char<WindowWidth/2) ||
             (abs(teki[i].x-x_char)<WindowWidth/2) ||
             (teki[i].x>Char_Size*(MapWidth-21) && (x_char>Char_Size*(MapWidth-11) || right_end_flag==1))
         )
         {
-            if(teki[i].flag==0 && teki[i].out_flag==1)//‘O‚Í‰æ–ÊŠO‚É‚¢‚½
+            if(teki[i].flag==0 && teki[i].out_flag==1)//å‰ã¯ç”»é¢å¤–ã«ã„ãŸ
             {
                 teki[i].flag=1;
                 teki[i].out_flag=0;
             }
         }
-        else//“G‚Í‰æ–ÊŠO‚É‚¢‚é
+        else//æ•µã¯ç”»é¢å¤–ã«ã„ã‚‹
         {
             teki[i].flag=0;
             teki[i].out_flag=1;
         }
-        //+++++++++++++++++++++“G‚ÌUŒ‚+++++++++++++++++
+        //+++++++++++++++++++++æ•µã®æ”»æ’ƒ+++++++++++++++++
         if((abs(x_char-teki_attack[i].x)<Char_Size) && (abs(y_char-teki_attack[i].y)<Char_Size) && teki_attack[i].flag==1)
         {
-            //+++++++++“G‚ÌUŒ‚‚ğH‚ç‚Á‚½+++++++++++++++++++++++
+            //+++++++++æ•µã®æ”»æ’ƒã‚’é£Ÿã‚‰ã£ãŸ+++++++++++++++++++++++
             Die();
         }
 
-        if(teki[i].flag==1)//¶‘¶‚µ‚Ä‚¢‚é“G‚Ì‚İˆÚ“®
+        if(teki[i].flag==1)//ç”Ÿå­˜ã—ã¦ã„ã‚‹æ•µã®ã¿ç§»å‹•
         {
             if((abs(x_char-teki[i].x)<Char_Size) && (abs(y_char-teki[i].y)<Char_Size))
             {
-                //++++++++++++++“G‚Æ‚Ô‚Â‚©‚Á‚½+++++++++++++++
+                //++++++++++++++æ•µã¨ã¶ã¤ã‹ã£ãŸ+++++++++++++++
                 Die();
             }
             for(j=0;j<Attack_NUM;j++)
             {
                 if((abs(attack[j].x-teki[i].x)<Char_Size) && (abs(attack[j].y-teki[i].y)<Char_Size) && attack[j].flag==1)
                 {
-                    if(j==1 || j==2)//FIRE,ICE‚Ìê‡
+                    if(j==1 || j==2)//FIRE,ICEã®å ´åˆ
                     {
-                        attack[j].flag=0;//‰Î‚©•X‚ªÁ‚¦‚é
+                        attack[j].flag=0;//ç«ã‹æ°·ãŒæ¶ˆãˆã‚‹
                         attack[j].t=0;
                     }
 
-                    //+++++++++“G‚ÉUŒ‚‚µ‚½++++++++++++++++++
+                    //+++++++++æ•µã«æ”»æ’ƒã—ãŸ++++++++++++++++++
                     teki[i].flag=0;
 
-                    if(item[i].flag==0 && (int)(5*(random()/(double)(RAND_MAX+1.0)))==0)//ƒ‰ƒ“ƒ_ƒ€‚ÅƒAƒCƒeƒ€‚ğ—‚Æ‚·
+                    if(item[i].flag==0 && (int)(5*(random()/(double)(RAND_MAX+1.0)))==0)//ãƒ©ãƒ³ãƒ€ãƒ ã§ã‚¢ã‚¤ãƒ†ãƒ ã‚’è½ã¨ã™
                     {
-                        item[i].flag=1;//ƒAƒCƒeƒ€‚ğ•\¦‚·‚é‚©‚Ç‚¤‚©‚Ìƒtƒ‰ƒO
-                        item[i].appear_flag=1;//ƒAƒCƒeƒ€‚ª‘¶İ‚·‚é‚©‚µ‚È‚¢‚©‚Ìƒtƒ‰ƒO
+                        item[i].flag=1;//ã‚¢ã‚¤ãƒ†ãƒ ã‚’è¡¨ç¤ºã™ã‚‹ã‹ã©ã†ã‹ã®ãƒ•ãƒ©ã‚°
+                        item[i].appear_flag=1;//ã‚¢ã‚¤ãƒ†ãƒ ãŒå­˜åœ¨ã™ã‚‹ã‹ã—ãªã„ã‹ã®ãƒ•ãƒ©ã‚°
                         item[i].x=teki[i].x;item[i].y=teki[i].y;
                     }
                 }
             }
 
-            Kabe_hantei(1,i);//teki‚Ì”»’è
+            Kabe_hantei(1,i);//tekiã®åˆ¤å®š
         }
         //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-        //++++++++++++++++++++ƒAƒCƒeƒ€‚Ìˆ—++++++++++++++++++++++++++++++++++
-        if(//‰æ–Ê“à‚ÉƒAƒCƒeƒ€‚ª‚ ‚é
+        //++++++++++++++++++++ã‚¢ã‚¤ãƒ†ãƒ ã®å‡¦ç†++++++++++++++++++++++++++++++++++
+        if(//ç”»é¢å†…ã«ã‚¢ã‚¤ãƒ†ãƒ ãŒã‚ã‚‹
             (item[i].x<WindowWidth && x_char<WindowWidth/2) ||
             (abs(item[i].x-x_char)<WindowWidth/2) ||
             (item[i].x>Char_Size*(MapWidth-21) && x_char>Char_Size*(MapWidth-11))
         )
         {
-            if(item[i].flag==0 && item[i].out_flag==1 && item[i].appear_flag==1)//‘O‚Í‰æ–ÊŠO‚É‚ ‚Á‚½
+            if(item[i].flag==0 && item[i].out_flag==1 && item[i].appear_flag==1)//å‰ã¯ç”»é¢å¤–ã«ã‚ã£ãŸ
             {
                 item[i].flag=1;
                 item[i].out_flag=0;
             }
         }
-        else//ƒAƒCƒeƒ€‚Í‰æ–ÊŠO‚É‚ ‚é
+        else//ã‚¢ã‚¤ãƒ†ãƒ ã¯ç”»é¢å¤–ã«ã‚ã‚‹
         {
             item[i].flag=0;
             item[i].out_flag=1;
         }
-        if(item[i].flag==1)//‘¶İ‚µ‚Ä‚¢‚éƒAƒCƒeƒ€‚Ì‚İ”»’è
+        if(item[i].flag==1)//å­˜åœ¨ã—ã¦ã„ã‚‹ã‚¢ã‚¤ãƒ†ãƒ ã®ã¿åˆ¤å®š
         {
             if((abs(x_char-item[i].x)<Char_Size) && (abs(y_char-item[i].y)<Char_Size))
             {
-                //+++++++++++++++++++ƒAƒCƒeƒ€‚ğƒQƒbƒg‚µ‚½++++++++++++++++++
-                if(attack[item[i].kind+1].limit<3)//Å‘åƒXƒgƒbƒN3
-                    attack[item[i].kind+1].limit++;//–‚–@‚Ìg—p‰ñ”‘‰Á
-                item[i].flag=0;//•\¦‚·‚é‚©‚µ‚È‚¢‚©‚Ìƒtƒ‰ƒO
-                item[i].appear_flag=0;//ƒAƒCƒeƒ€‚ª‘¶İ‚·‚é‚©‚µ‚È‚¢‚©‚Ìƒtƒ‰ƒO
+                //+++++++++++++++++++ã‚¢ã‚¤ãƒ†ãƒ ã‚’ã‚²ãƒƒãƒˆã—ãŸ++++++++++++++++++
+                if(attack[item[i].kind+1].limit<3)//æœ€å¤§ã‚¹ãƒˆãƒƒã‚¯3
+                    attack[item[i].kind+1].limit++;//é­”æ³•ã®ä½¿ç”¨å›æ•°å¢—åŠ 
+                item[i].flag=0;//è¡¨ç¤ºã™ã‚‹ã‹ã—ãªã„ã‹ã®ãƒ•ãƒ©ã‚°
+                item[i].appear_flag=0;//ã‚¢ã‚¤ãƒ†ãƒ ãŒå­˜åœ¨ã™ã‚‹ã‹ã—ãªã„ã‹ã®ãƒ•ãƒ©ã‚°
             }
         }
         //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
     }
 }
-void Boss_hantei(void)//+++++++++++++++++++++ƒ{ƒX‚Ìˆ—++++++++++++++++
+void Boss_hantei(void)//+++++++++++++++++++++ãƒœã‚¹ã®å‡¦ç†++++++++++++++++
 {
     int i,j;
     
@@ -1073,84 +1073,84 @@ void Boss_hantei(void)//+++++++++++++++++++++ƒ{ƒX‚Ìˆ—++++++++++++++++
     {
         for(j=0;j<3;j++)
         {
-            //+++++++++++++++++++++ƒ{ƒX‚ÌUŒ‚+++++++++++++++++
+            //+++++++++++++++++++++ãƒœã‚¹ã®æ”»æ’ƒ+++++++++++++++++
             if((abs(x_char-boss_attack[i].x[j])<Char_Size) && (abs(y_char-boss_attack[i].y[j])<Char_Size) && boss_attack[i].flag==1)
             {
-                //+++++++++++++++ƒ{ƒX‚ÌUŒ‚‚ğH‚ç‚Á‚½++++++++++++++++
+                //+++++++++++++++ãƒœã‚¹ã®æ”»æ’ƒã‚’é£Ÿã‚‰ã£ãŸ++++++++++++++++
                 Die();
             }
         }
     }
 
-    if(//+++++++++++++++++++++++ƒ{ƒX‚Æ‚ÌÕ“Ë”»’è+++++++ƒTƒCƒY‚ªˆá‚¤‚½‚ß‚â‚â‚±‚µ‚¢++++++
+    if(//+++++++++++++++++++++++ãƒœã‚¹ã¨ã®è¡çªåˆ¤å®š+++++++ã‚µã‚¤ã‚ºãŒé•ã†ãŸã‚ã‚„ã‚„ã“ã—ã„++++++
         (
-            (x_char<=boss.x && (abs(x_char-boss.x)<Char_Size))//ƒLƒƒƒ‰‚Ì‚Ù‚¤‚ª¶‚É‚¢‚éê‡
+            (x_char<=boss.x && (abs(x_char-boss.x)<Char_Size))//ã‚­ãƒ£ãƒ©ã®ã»ã†ãŒå·¦ã«ã„ã‚‹å ´åˆ
             ||
-            (x_char>boss.x && (abs(x_char-boss.x)<Boss_Size))//ƒLƒƒƒ‰‚Ì‚Ù‚¤‚ª‰E‚É‚¢‚éê‡
+            (x_char>boss.x && (abs(x_char-boss.x)<Boss_Size))//ã‚­ãƒ£ãƒ©ã®ã»ã†ãŒå³ã«ã„ã‚‹å ´åˆ
         )
         &&
         (
-            (y_char<=boss.y && (abs(y_char-boss.y)<Char_Size))//ƒLƒƒƒ‰‚Ì‚Ù‚¤‚ªã‚É‚¢‚éê‡
+            (y_char<=boss.y && (abs(y_char-boss.y)<Char_Size))//ã‚­ãƒ£ãƒ©ã®ã»ã†ãŒä¸Šã«ã„ã‚‹å ´åˆ
             ||
-            (y_char>boss.y && (abs(y_char-boss.y)<Boss_Size))//ƒLƒƒƒ‰‚Ì‚Ù‚¤‚ªã‚É‚¢‚éê‡
+            (y_char>boss.y && (abs(y_char-boss.y)<Boss_Size))//ã‚­ãƒ£ãƒ©ã®ã»ã†ãŒä¸Šã«ã„ã‚‹å ´åˆ
         )
       )
     {
-        //++++++ƒ{ƒX‚Æ‚Ô‚Â‚©‚Á‚½+++++++++++++++++++++++++++++++++++++
+        //++++++ãƒœã‚¹ã¨ã¶ã¤ã‹ã£ãŸ+++++++++++++++++++++++++++++++++++++
         Die();
     }
     for(j=0;j<Attack_NUM;j++)
     {
-        if(//+++++++++++++++++++++++ƒ{ƒX‚Ö‚ÌUŒ‚”»’è+++++++ƒTƒCƒY‚ªˆá‚¤‚½‚ß‚â‚â‚±‚µ‚¢++++++
+        if(//+++++++++++++++++++++++ãƒœã‚¹ã¸ã®æ”»æ’ƒåˆ¤å®š+++++++ã‚µã‚¤ã‚ºãŒé•ã†ãŸã‚ã‚„ã‚„ã“ã—ã„++++++
             (
-                (attack[j].x<=boss.x && (abs(attack[j].x-boss.x)<Char_Size))//UŒ‚‚Ì‚Ù‚¤‚ª¶‚É‚ ‚éê‡
+                (attack[j].x<=boss.x && (abs(attack[j].x-boss.x)<Char_Size))//æ”»æ’ƒã®ã»ã†ãŒå·¦ã«ã‚ã‚‹å ´åˆ
                 ||
-                (attack[j].x>boss.x && (abs(attack[j].x-boss.x)<Boss_Size))//UŒ‚‚Ì‚Ù‚¤‚ª‰E‚É‚ ‚éê‡
+                (attack[j].x>boss.x && (abs(attack[j].x-boss.x)<Boss_Size))//æ”»æ’ƒã®ã»ã†ãŒå³ã«ã‚ã‚‹å ´åˆ
             )
             &&
             (
-                (attack[j].y<=boss.y && (abs(attack[j].y-boss.y)<Char_Size))//UŒ‚‚Ì‚Ù‚¤‚ªã‚É‚ ‚éê‡
+                (attack[j].y<=boss.y && (abs(attack[j].y-boss.y)<Char_Size))//æ”»æ’ƒã®ã»ã†ãŒä¸Šã«ã‚ã‚‹å ´åˆ
                 ||
-                (attack[j].y>boss.y && (abs(attack[j].y-boss.y)<Boss_Size))//UŒ‚‚Ì‚Ù‚¤‚ª‰º‚É‚ ‚éê‡
+                (attack[j].y>boss.y && (abs(attack[j].y-boss.y)<Boss_Size))//æ”»æ’ƒã®ã»ã†ãŒä¸‹ã«ã‚ã‚‹å ´åˆ
             )
             &&
-            attack[j].flag==1//UŒ‚‚ğŒJ‚èo‚µ‚Ä‚¢‚é
+            attack[j].flag==1//æ”»æ’ƒã‚’ç¹°ã‚Šå‡ºã—ã¦ã„ã‚‹
             &&
-            boss.nodamage_t==0//–³“GŠÔ‚Å‚Í‚È‚¢
+            boss.nodamage_t==0//ç„¡æ•µæ™‚é–“ã§ã¯ãªã„
             &&
-            die_t==0//ålŒö‚ª€‚ñ‚Å‚¢‚é‚Å‚Í‚È‚¢
+            die_t==0//ä¸»äººå…¬ãŒæ­»ã‚“ã§ã„ã‚‹æ™‚ã§ã¯ãªã„
           )
         {
-            //++++++++++++++ƒ{ƒX‚ÉUŒ‚‚µ‚½++++++++++++++++++++++++++
-            attack[j].flag=0;//UŒ‚‚ªÁ‚¦‚é=˜A‘±‚ÅUŒ‚‚Å‚«‚È‚¢
+            //++++++++++++++ãƒœã‚¹ã«æ”»æ’ƒã—ãŸ++++++++++++++++++++++++++
+            attack[j].flag=0;//æ”»æ’ƒãŒæ¶ˆãˆã‚‹=é€£ç¶šã§æ”»æ’ƒã§ããªã„
             attack[j].t=0;
-            if(j==0 || j==3)//Œ•‚©—‹‚Ìê‡‚Í2ƒ_ƒ[ƒW
+            if(j==0 || j==3)//å‰£ã‹é›·ã®å ´åˆã¯2ãƒ€ãƒ¡ãƒ¼ã‚¸
                 boss.life-=2;
             else
                 boss.life--;
-            if(boss.life<=0)//ƒ{ƒX‚ğ“|‚µ‚½
+            if(boss.life<=0)//ãƒœã‚¹ã‚’å€’ã—ãŸ
             {
                 boss.flag=0;
                 init();
                 clear_flag=1;stage_start=0;
-                Game_Clear();//ƒQ[ƒ€ƒNƒŠƒAŒã‚ÌƒV[ƒ“ŠJn
+                Game_Clear();//ã‚²ãƒ¼ãƒ ã‚¯ãƒªã‚¢å¾Œã®ã‚·ãƒ¼ãƒ³é–‹å§‹
             }
-            boss.nodamage_t=30;//ƒ{ƒX‚Ì–³“GŠÔİ’è(˜A‘±‚ÅUŒ‚‚Å‚«‚È‚¢)
+            boss.nodamage_t=30;//ãƒœã‚¹ã®ç„¡æ•µæ™‚é–“è¨­å®š(é€£ç¶šã§æ”»æ’ƒã§ããªã„)
         }
     }
 
-    Kabe_hantei(2,i);//boss‚Ì”»’è
+    Kabe_hantei(2,i);//bossã®åˆ¤å®š
 }
-void Kabe_hantei(int who,int n)    //+++++++++++ˆÚ“®æ‚ª•Ç‚©‚Ç‚¤‚©”»’è+++++++++++++++++
+void Kabe_hantei(int who,int n)    //+++++++++++ç§»å‹•å…ˆãŒå£ã‹ã©ã†ã‹åˆ¤å®š+++++++++++++++++
 {
     int cx,cy;
     int x,y;
     float t;
-    int cursor,rand_tmp,teki_temp;//teki_temp‚Í“G‚É‚æ‚Á‚Ä•à‚«‚ğ•Ï‚¦‚é‚½‚ß
-    int step_temp;//“G‚ÆƒLƒƒƒ‰‚Ì•à•‚ğ•Ï‚¦‚é
-    int boss_n;//ƒ{ƒX‚ÌUŒ‚•û–@‘I‘ğ
+    int cursor,rand_tmp,teki_temp;//teki_tempã¯æ•µã«ã‚ˆã£ã¦æ­©ãã‚’å¤‰ãˆã‚‹ãŸã‚
+    int step_temp;//æ•µã¨ã‚­ãƒ£ãƒ©ã®æ­©å¹…ã‚’å¤‰ãˆã‚‹
+    int boss_n;//ãƒœã‚¹ã®æ”»æ’ƒæ–¹æ³•é¸æŠ
 
-    if(who==0)//ƒLƒƒƒ‰ˆÚ“®‚Ìê‡
+    if(who==0)//ã‚­ãƒ£ãƒ©ç§»å‹•ã®å ´åˆ
     {
         x=x_char;
         y=y_char;
@@ -1161,14 +1161,14 @@ void Kabe_hantei(int who,int n)    //+++++++++++ˆÚ“®æ‚ª•Ç‚©‚Ç‚¤‚©”»’è++++++++++
         cx=x/Char_Size;
         cy=y/Char_Size;
 
-        if(jump_flag==1)//ƒWƒƒƒ“ƒv
+        if(jump_flag==1)//ã‚¸ãƒ£ãƒ³ãƒ—
         {
             cy=(y-1)/Char_Size;
             if(
                 (map[cy][cx]=='C' || (x%Char_Size!=0 && map[cy][cx+1]=='C'))
                 ||
                 (JumpHeight-9.8*t<=0)
-            )//•Ç‚É“–‚½‚Á‚½ê‡‚©ƒWƒƒƒ“ƒv—Í‚ª‚È‚­‚È‚Á‚½ê‡
+            )//å£ã«å½“ãŸã£ãŸå ´åˆã‹ã‚¸ãƒ£ãƒ³ãƒ—åŠ›ãŒãªããªã£ãŸå ´åˆ
             {
                 fall_flag=1;
                 jump_flag=0;t=0;y_tempchar=y;
@@ -1179,47 +1179,47 @@ void Kabe_hantei(int who,int n)    //+++++++++++ˆÚ“®æ‚ª•Ç‚©‚Ç‚¤‚©”»’è++++++++++
                 y=y_tempchar - JumpHeight*t + 9.8*t*t/2;
                 cy=y/Char_Size;
                 if(map[cy][cx]=='C' || (x%Char_Size!=0 && map[cy][cx+1]=='C'))
-                    y+=Char_Size-y%Char_Size;//ƒuƒƒbƒN‚É“ª‚ª–„‚Ü‚ç‚È‚¢‚æ‚¤‚É
-                if(JumpHeight-9.8*t<=0)//‘¬“x‚ª‹tŒü‚«‚É‚È‚é
+                    y+=Char_Size-y%Char_Size;//ãƒ–ãƒ­ãƒƒã‚¯ã«é ­ãŒåŸ‹ã¾ã‚‰ãªã„ã‚ˆã†ã«
+                if(JumpHeight-9.8*t<=0)//é€Ÿåº¦ãŒé€†å‘ãã«ãªã‚‹
                 {
                     fall_flag=1;
                     jump_flag=0;t=0;y_tempchar=y;
                 }
             }
             else
-            {//‰æ–Êã‚É“–‚½‚Á‚½ê‡
+            {//ç”»é¢ä¸Šã«å½“ãŸã£ãŸå ´åˆ
                 fall_flag=1;
                 jump_flag=0;t=0;y_tempchar=y;
             }
         }
-        else if(!(map[cy+1][cx]=='C' || (x%Char_Size!=0 && map[cy+1][cx+1]=='C')))//—‚¿‚é
+        else if(!(map[cy+1][cx]=='C' || (x%Char_Size!=0 && map[cy+1][cx+1]=='C')))//è½ã¡ã‚‹
         {
-            if(fall_flag==0)//‰¡ˆÚ“®‚Å—‚¿n‚ß‚½‚Æ‚«
+            if(fall_flag==0)//æ¨ªç§»å‹•ã§è½ã¡å§‹ã‚ãŸã¨ã
                 y_tempchar=y;
             fall_flag=1;
             if(y+Char_Size+Step<WindowHeight)
             {
                 t+=0.24;
-                y=y_tempchar + 9.8*t*t/2;//—‰ºˆ—
+                y=y_tempchar + 9.8*t*t/2;//è½ä¸‹å‡¦ç†
                 cy=y/Char_Size;
-                if(map[cy+1][cx]=='C' || (x%Char_Size!=0 && map[cy+1][cx+1]=='C'))//’…’n
-                    y-=y%32;//ƒuƒƒbƒN‚É–„‚Ü‚ç‚È‚¢‚æ‚¤‚É
+                if(map[cy+1][cx]=='C' || (x%Char_Size!=0 && map[cy+1][cx+1]=='C'))//ç€åœ°
+                    y-=y%32;//ãƒ–ãƒ­ãƒƒã‚¯ã«åŸ‹ã¾ã‚‰ãªã„ã‚ˆã†ã«
             }
-            else//—‚¿‚½‚Æ‚«
+            else//è½ã¡ãŸã¨ã
             {
                 cursor=0;t=0;
             }
         }
-        else//ƒWƒƒƒ“ƒvI—¹
+        else//ã‚¸ãƒ£ãƒ³ãƒ—çµ‚äº†
         {
             fall_flag=0;t=0;
         }
     }
-    else if(who==1)//“G‚Ìê‡
+    else if(who==1)//æ•µã®å ´åˆ
     {
         x=teki[n].x;
         y=teki[n].y;
-        if(n%4==0)//ƒXƒ‰ƒCƒ€
+        if(n%4==0)//ã‚¹ãƒ©ã‚¤ãƒ 
         {
             step_temp=Step-3;
             teki_temp=30;
@@ -1240,27 +1240,27 @@ void Kabe_hantei(int who,int n)    //+++++++++++ˆÚ“®æ‚ª•Ç‚©‚Ç‚¤‚©”»’è++++++++++
         {
             teki[n].walk_flag=teki[n].walk_flag^1;
             teki[n].t=0;
-            if(n%4==2)//”ò‚Ô“G
+            if(n%4==2)//é£›ã¶æ•µ
                 rand_tmp=5;
-            else//•à‚­“G
+            else//æ­©ãæ•µ
                 rand_tmp=3;
-            if(cursor!=teki[n].direction || n%4==2)//•à‚­“G‚É‚ÍˆÚ“®§ŒÀ‚ğA”ò‚Ô“G‚É‚Í‚È‚µ
+            if(cursor!=teki[n].direction || n%4==2)//æ­©ãæ•µã«ã¯ç§»å‹•åˆ¶é™ã‚’ã€é£›ã¶æ•µã«ã¯ãªã—
             {
                 switch((int)(rand_tmp * (random()/(double)(RAND_MAX+1.0))))
                 {
                     case 0 : cursor=0;teki[n].direction=(int)(2 * (random()/(double)(RAND_MAX+1.0)))+2;break;
-                    case 1 : cursor=3;teki[n].direction=3;break;//2,3‚Í‰¡•ûŒü‚È‚Ì‚Å•Ö‹Xã
-                    case 2 : cursor=2;teki[n].direction=2;break;//3‚Æ
-                    case 3 : cursor=1;break;//1‚ª“ü‚ê‘Ö‚í‚Á‚Ä‚¢‚é
+                    case 1 : cursor=3;teki[n].direction=3;break;//2,3ã¯æ¨ªæ–¹å‘ãªã®ã§ä¾¿å®œä¸Š
+                    case 2 : cursor=2;teki[n].direction=2;break;//3ã¨
+                    case 3 : cursor=1;break;//1ãŒå…¥ã‚Œæ›¿ã‚ã£ã¦ã„ã‚‹
                     case 4 : cursor=4;break;
                 };
             }
 
-            if(n%4>=2)//”ò‚Ô“G‚Æ–‚–@g‚¢‚ÍUŒ‚‚·‚é
+            if(n%4>=2)//é£›ã¶æ•µã¨é­”æ³•ä½¿ã„ã¯æ”»æ’ƒã™ã‚‹
             {
-                if(teki_attack[n].flag==0 && cursor==0)//“G‚ª~‚Ü‚é‚ÆUŒ‚
+                if(teki_attack[n].flag==0 && cursor==0)//æ•µãŒæ­¢ã¾ã‚‹ã¨æ”»æ’ƒ
                 {
-                    if((teki[n].direction==2 && teki[n].x<x_char)//Œü‚¢‚Ä‚¢‚é•ûŒü‚ÉƒLƒƒƒ‰‚ª‚¢‚½‚ç
+                    if((teki[n].direction==2 && teki[n].x<x_char)//å‘ã„ã¦ã„ã‚‹æ–¹å‘ã«ã‚­ãƒ£ãƒ©ãŒã„ãŸã‚‰
                      ||
                      (teki[n].direction==3 && teki[n].x>x_char))
                         teki_attack[n].flag=1;
@@ -1269,13 +1269,13 @@ void Kabe_hantei(int who,int n)    //+++++++++++ˆÚ“®æ‚ª•Ç‚©‚Ç‚¤‚©”»’è++++++++++
         }
         teki[n].t++;
     }
-    else if(who==2)//ƒ{ƒX‚Ìê‡
+    else if(who==2)//ãƒœã‚¹ã®å ´åˆ
     {
         x=boss.x;
         y=boss.y;
 
-        step_temp=Step-2;//•à‚­‘¬“x
-        teki_temp=40;//•ûŒü“]Š·‚È‚Ç‚ÌŠÔ
+        step_temp=Step-2;//æ­©ãé€Ÿåº¦
+        teki_temp=40;//æ–¹å‘è»¢æ›ãªã©ã®æ™‚é–“
 
         cursor=boss.cursor;
 
@@ -1283,21 +1283,21 @@ void Kabe_hantei(int who,int n)    //+++++++++++ˆÚ“®æ‚ª•Ç‚©‚Ç‚¤‚©”»’è++++++++++
         {
             boss.walk_flag=boss.walk_flag^1;
             boss.t=0;
-            rand_tmp=2;//•à‚­ƒ{ƒX‚É‚ÍˆÚ“®§ŒÀ
+            rand_tmp=2;//æ­©ããƒœã‚¹ã«ã¯ç§»å‹•åˆ¶é™
 
             switch((int)(rand_tmp * (random()/(double)(RAND_MAX+1.0))))
             {
                 case 0 : cursor=0;break;
-                case 1 : cursor=boss.direction;break;//Œü‚¢‚Ä‚¢‚é•ûŒü‚Öi‚Ş
+                case 1 : cursor=boss.direction;break;//å‘ã„ã¦ã„ã‚‹æ–¹å‘ã¸é€²ã‚€
             };
-            if(x_char<x)//ƒLƒƒƒ‰‚ª¶‚É‚¢‚éê‡
+            if(x_char<x)//ã‚­ãƒ£ãƒ©ãŒå·¦ã«ã„ã‚‹å ´åˆ
                 boss.direction=3;
-            else        //ƒLƒƒƒ‰‚ª‰E‚É‚¢‚éê‡
+            else        //ã‚­ãƒ£ãƒ©ãŒå³ã«ã„ã‚‹å ´åˆ
                 boss.direction=2;
 
-            //++++++++++++ƒ{ƒX‚ÌUŒ‚++++++++++++++++++++++++++++++++
+            //++++++++++++ãƒœã‚¹ã®æ”»æ’ƒ++++++++++++++++++++++++++++++++
             boss_n=(int)(Boss_Attack_NUM * (random()/(double)(RAND_MAX+1.0)));
-            if(boss_attack[0].flag==0 && boss_attack[1].flag==0 && boss_attack[2].flag==0 && boss_attack[3].flag==0 && cursor==0)//~‚Ü‚é‚ÆUŒ‚
+            if(boss_attack[0].flag==0 && boss_attack[1].flag==0 && boss_attack[2].flag==0 && boss_attack[3].flag==0 && cursor==0)//æ­¢ã¾ã‚‹ã¨æ”»æ’ƒ
             {
                 boss_attack[boss_n].flag=1;
             }
@@ -1307,17 +1307,17 @@ void Kabe_hantei(int who,int n)    //+++++++++++ˆÚ“®æ‚ª•Ç‚©‚Ç‚¤‚©”»’è++++++++++
 
     cx=x/Char_Size;
     cy=y/Char_Size;
-    switch(cursor)//ˆÚ“®æ‚É•Ç‚ª‚ ‚é‚©‚Ç‚¤‚©
+    switch(cursor)//ç§»å‹•å…ˆã«å£ãŒã‚ã‚‹ã‹ã©ã†ã‹
     {
-        case 1://ª
+        case 1://â†‘
             cy=(y-1)/Char_Size;
             if(map[cy][cx]=='C' || (x%Char_Size!=0 && map[cy][cx+1]=='C'))
             {
                 cursor=0;
             }
             break;
-        case 2://¨
-            if(who==2)//ƒ{ƒX‚Ìê‡
+        case 2://â†’
+            if(who==2)//ãƒœã‚¹ã®å ´åˆ
             {
                 if(map[cy][cx+2]=='C' || (y%Char_Size!=0 && map[cy+1][cx+2]=='C'))
                 {
@@ -1331,7 +1331,7 @@ void Kabe_hantei(int who,int n)    //+++++++++++ˆÚ“®æ‚ª•Ç‚©‚Ç‚¤‚©”»’è++++++++++
                     cursor=0;
                 }
                 
-                if(who==1 && n%4!=2)//•à‚­“G‚Ìê‡A’i·‚©‚ç—‚¿‚È‚¢‚æ‚¤‚É
+                if(who==1 && n%4!=2)//æ­©ãæ•µã®å ´åˆã€æ®µå·®ã‹ã‚‰è½ã¡ãªã„ã‚ˆã†ã«
                 {
                     cx=(x+Char_Size)/Char_Size;
                     if(!(map[cy+1][cx]=='C' || (x%Char_Size!=0 && map[cy+1][cx+1]=='C')))
@@ -1342,13 +1342,13 @@ void Kabe_hantei(int who,int n)    //+++++++++++ˆÚ“®æ‚ª•Ç‚©‚Ç‚¤‚©”»’è++++++++++
                 }
             }
             break;
-        case 3://©
+        case 3://â†
             cx=(x-1)/Char_Size;
             if(map[cy][cx]=='C' || (y%Char_Size!=0 && map[cy+1][cx]=='C'))
             {
                 cursor=0;
             }
-            if(who==1 && n%4!=2)//•à‚­“G‚Ìê‡A’i·‚©‚ç—‚¿‚È‚¢‚æ‚¤‚É
+            if(who==1 && n%4!=2)//æ­©ãæ•µã®å ´åˆã€æ®µå·®ã‹ã‚‰è½ã¡ãªã„ã‚ˆã†ã«
             {
                 cx=(x-Char_Size)/Char_Size;
                 if(!(map[cy+1][cx]=='C' || (x%Char_Size!=0 && map[cy+1][cx+1]=='C')))
@@ -1358,13 +1358,13 @@ void Kabe_hantei(int who,int n)    //+++++++++++ˆÚ“®æ‚ª•Ç‚©‚Ç‚¤‚©”»’è++++++++++
                 }            
             }
             break;
-        case 4://«
+        case 4://â†“
             if(map[cy+1][cx]=='C' || (x%Char_Size!=0 && map[cy+1][cx+1]=='C'))
             {
                 cursor=0;
             }
             break;
-        case 0://ƒLƒƒƒ‰ƒNƒ^[ê—p(•Ç‚ğ‰z‚¦‚éuŠÔ—p)
+        case 0://ã‚­ãƒ£ãƒ©ã‚¯ã‚¿ãƒ¼å°‚ç”¨(å£ã‚’è¶Šãˆã‚‹ç¬é–“ç”¨)
         if(who==0)
         {
             if(cursor_key==2 && !(map[cy][cx+1]=='C' || (y%Char_Size!=0 && map[cy+1][cx+1]=='C')))
@@ -1379,7 +1379,7 @@ void Kabe_hantei(int who,int n)    //+++++++++++ˆÚ“®æ‚ª•Ç‚©‚Ç‚¤‚©”»’è++++++++++
         break;
     };
 
-    switch(cursor)//‰æ–ÊŠO‚Å‚È‚¯‚ê‚ÎˆÚ“®
+    switch(cursor)//ç”»é¢å¤–ã§ãªã‘ã‚Œã°ç§»å‹•
     {
         case 1:if(y>=0){y-=step_temp;}else{cursor=0;}break;
         case 2:if(x+Char_Size+step_temp<=Char_Size*(MapWidth-1)){x+=step_temp;}else{cursor=0;}break;
@@ -1400,33 +1400,33 @@ void Kabe_hantei(int who,int n)    //+++++++++++ˆÚ“®æ‚ª•Ç‚©‚Ç‚¤‚©”»’è++++++++++
         boss.x=x;boss.y=y;boss.cursor=cursor;
     }
 }
-void Die(void)//€–SŒã‚Ìˆ—
+void Die(void)//æ­»äº¡å¾Œã®å‡¦ç†
 {
-    if(die_t==0)//€–SƒAƒjƒŠJn
+    if(die_t==0)//æ­»äº¡ã‚¢ãƒ‹ãƒ¡é–‹å§‹
     {
         die_t=120;
         cursor_flag=0;cursor_key=0;
     }
         
     die_t--;
-    if(die_t==0)//€–SI‚í‚è
+    if(die_t==0)//æ­»äº¡çµ‚ã‚ã‚Š
     {
         Stage_Change();
     }
 }
-void Stage_Change(void)//ƒXƒe[ƒW‚ğ•Ï‚¦‚é
+void Stage_Change(void)//ã‚¹ãƒ†ãƒ¼ã‚¸ã‚’å¤‰ãˆã‚‹
 {
     int i;
     char file_name[20];
         
-    init();//‰Šú‰»
+    init();//åˆæœŸåŒ–
     
-    stage_start=0;//ƒXƒe[ƒW‚ªŠJn‚³‚ê‚È‚¢
+    stage_start=0;//ã‚¹ãƒ†ãƒ¼ã‚¸ãŒé–‹å§‹ã•ã‚Œãªã„
     pause_flag=1;
 
-    if(stage==0)//ƒ^ƒCƒgƒ‹‰æ–Ê
+    if(stage==0)//ã‚¿ã‚¤ãƒˆãƒ«ç”»é¢
     {
-        //++++++++++++ƒ^ƒCƒgƒ‹•`‰æ++++++++++++++++++++++++
+        //++++++++++++ã‚¿ã‚¤ãƒˆãƒ«æç”»++++++++++++++++++++++++
         glClear(GL_COLOR_BUFFER_BIT);
         glBindTexture(GL_TEXTURE_2D,scene_texture[0]);
         PutSprite(0,0,WindowWidth,WindowHeight);
@@ -1442,7 +1442,7 @@ void Stage_Change(void)//ƒXƒe[ƒW‚ğ•Ï‚¦‚é
         glFlush();
         glutSwapBuffers();
     
-        //+++++++++++ƒ}ƒbƒv‰æ‘œ“Ç‚İ‚İ++++++++++++++++++++++++++++
+        //+++++++++++ãƒãƒƒãƒ—ç”»åƒèª­ã¿è¾¼ã¿++++++++++++++++++++++++++++
         for(i=0;i<Tex_NUM;i++)
         {
             sprintf(file_name,"image/map_%d.png",i+1);
@@ -1465,7 +1465,7 @@ void Stage_Change(void)//ƒXƒe[ƒW‚ğ•Ï‚¦‚é
         strcpy(map[13],"CCCCCCCCCCCCCCCCCCCCCCCAAAAAACCCCCCCCCCCCCAACCCCCCCCCCCCCCCCCCCAACAAAACAABACAAAACABAACCCCCCCCCCCCCCC");
         strcpy(map[14],"CCCCCCCCCCCCCCCCCCCCAAAAABAAACCCCCCCCCCCCCAACCCCCCCCCCCCCCCCCCCAACAAAACAAAACAAAACAAAACCCCCCCCCCCCCCC");
         
-        //++++++++++++“G‚Ì‰Šúİ’è+++++++++++++++++++++++
+        //++++++++++++æ•µã®åˆæœŸè¨­å®š+++++++++++++++++++++++
         teki[0].x=Char_Size*6;teki[0].y=Char_Size*8;
         teki[1].x=Char_Size*5;teki[1].y=Char_Size*3;
         teki[2].x=Char_Size*27;teki[2].y=Char_Size*3;
@@ -1492,9 +1492,9 @@ void Stage_Change(void)//ƒXƒe[ƒW‚ğ•Ï‚¦‚é
         teki[23].x=Char_Size*96;teki[23].y=Char_Size*12;
         teki[24].x=Char_Size*93;teki[24].y=Char_Size*12;
         
-        sleep(1);//ƒ[ƒfƒBƒ“ƒO‰æ–Ê‚ÌƒEƒFƒCƒg
+        sleep(1);//ãƒ­ãƒ¼ãƒ‡ã‚£ãƒ³ã‚°ç”»é¢ã®ã‚¦ã‚§ã‚¤ãƒˆ
         
-        //++++++++++++STAGEŠJn‚Ì”wŒi++++++++++++++++++++++++
+        //++++++++++++STAGEé–‹å§‹ã®èƒŒæ™¯++++++++++++++++++++++++
         glClear(GL_COLOR_BUFFER_BIT);
         glBindTexture(GL_TEXTURE_2D,scene_texture[2]);
         PutSprite(0,0,WindowWidth,WindowHeight);
@@ -1510,7 +1510,7 @@ void Stage_Change(void)//ƒXƒe[ƒW‚ğ•Ï‚¦‚é
         glFlush();
         glutSwapBuffers();
 
-        //+++++++++++ƒ}ƒbƒv‰æ‘œ“Ç‚İ‚İ++++++++++++++++++++++++++++
+        //+++++++++++ãƒãƒƒãƒ—ç”»åƒèª­ã¿è¾¼ã¿++++++++++++++++++++++++++++
         for(i=0;i<Tex_NUM;i++)
         {
             sprintf(file_name,"image/map2_%d.png",i+1);
@@ -1533,7 +1533,7 @@ void Stage_Change(void)//ƒXƒe[ƒW‚ğ•Ï‚¦‚é
         strcpy(map[13],"CCCCCCCCCCCCCCCCCCCCCCAAAAAAAAAAAAAAAAAAAAACAAAAACAAAAAAAAAAAAAAAAACCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC");
         strcpy(map[14],"CCCCCCCCCCCCCCCCCCCCCCAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC");
         
-        //++++++++++++“G‚Ì‰Šúİ’è+++++++++++++++++++++++
+        //++++++++++++æ•µã®åˆæœŸè¨­å®š+++++++++++++++++++++++
         teki[0].x=Char_Size*6;teki[0].y=Char_Size*12;
         teki[1].x=Char_Size*14;teki[1].y=Char_Size*12;
         teki[2].x=Char_Size*23;teki[2].y=Char_Size*12;
@@ -1554,7 +1554,7 @@ void Stage_Change(void)//ƒXƒe[ƒW‚ğ•Ï‚¦‚é
         teki[17].x=Char_Size*69;teki[17].y=Char_Size*12;
         teki[18].x=Char_Size*74;teki[18].y=Char_Size*5;
         teki[19].x=Char_Size*79;teki[19].y=Char_Size*12;
-        //++++++ˆÈ‰º‚Ì“G‚ÍƒQ[ƒ€‚É‚ÍQ‰Á‚µ‚È‚¢+++++++++++++++++
+        //++++++ä»¥ä¸‹ã®æ•µã¯ã‚²ãƒ¼ãƒ ã«ã¯å‚åŠ ã—ãªã„+++++++++++++++++
         teki[20].x=Char_Size*150;teki[20].y=Char_Size*12;
         teki[21].x=Char_Size*150;teki[21].y=Char_Size*12;
         teki[22].x=Char_Size*150;teki[22].y=Char_Size*12;
@@ -1562,9 +1562,9 @@ void Stage_Change(void)//ƒXƒe[ƒW‚ğ•Ï‚¦‚é
         teki[24].x=Char_Size*150;teki[24].y=Char_Size*12;
         boss.x=Char_Size*96;boss.y=Char_Size*11;boss.life=20;
         
-        sleep(1);//ƒ[ƒfƒBƒ“ƒO‰æ–Ê‚ÌƒEƒFƒCƒg
+        sleep(1);//ãƒ­ãƒ¼ãƒ‡ã‚£ãƒ³ã‚°ç”»é¢ã®ã‚¦ã‚§ã‚¤ãƒˆ
         
-        //++++++++++++STAGEŠJn‚Ì”wŒi++++++++++++++++++++++++
+        //++++++++++++STAGEé–‹å§‹ã®èƒŒæ™¯++++++++++++++++++++++++
         glClear(GL_COLOR_BUFFER_BIT);
         glBindTexture(GL_TEXTURE_2D,scene_texture[3]);
         PutSprite(0,0,WindowWidth,WindowHeight);
@@ -1574,18 +1574,18 @@ void Stage_Change(void)//ƒXƒe[ƒW‚ğ•Ï‚¦‚é
 }
 void Game_Clear(void)
 {
-    if((z_key==1 && z_up==0) || clear_scene==4)//‰Ÿ‚µ‚Á‚Ï‚È‚µ‚Å‚ài‚Ü‚È‚¢Bz‚ğ‰Ÿ‚µ‚½‚Æ‚«‚ÆƒNƒŠƒA’¼Œã
+    if((z_key==1 && z_up==0) || clear_scene==4)//æŠ¼ã—ã£ã±ãªã—ã§ã‚‚é€²ã¾ãªã„ã€‚zã‚’æŠ¼ã—ãŸã¨ãã¨ã‚¯ãƒªã‚¢ç›´å¾Œ
     {
         z_key=0;
         
-        if(clear_scene==Scene_NUM)//Fin‚Ü‚Å•\¦‚µ‚½
+        if(clear_scene==Scene_NUM)//Finã¾ã§è¡¨ç¤ºã—ãŸ
         {
             stage=0;
             Stage_Change();
             return;
         }
         
-        //++++++++++++ƒ^ƒCƒgƒ‹•`‰æ++++++++++++++++++++++++
+        //++++++++++++ã‚¿ã‚¤ãƒˆãƒ«æç”»++++++++++++++++++++++++
         glClear(GL_COLOR_BUFFER_BIT);
         glBindTexture(GL_TEXTURE_2D,scene_texture[clear_scene]);
         PutSprite(0,0,WindowWidth,WindowHeight);
@@ -1597,9 +1597,9 @@ void Game_Clear(void)
     }
 }
 
-void Keyboard(char  key,int x,int y)//ƒL[“ü—Í
+void Keyboard(char  key,int x,int y)//ã‚­ãƒ¼å…¥åŠ›
 {
-    if(die_t!=0)//€–S’†
+    if(die_t!=0)//æ­»äº¡ä¸­
         return;
     if(pause_flag==0)
     {
@@ -1620,22 +1620,22 @@ void Keyboard(char  key,int x,int y)//ƒL[“ü—Í
             default:break;
         }
     }
-    else if(key=='z' && z_up==1)//ƒV[ƒ“’†‚ÉZ‚ğ‰Ÿ‚·‚Æ1ê–Êi‚Ş
+    else if(key=='z' && z_up==1)//ã‚·ãƒ¼ãƒ³ä¸­ã«Zã‚’æŠ¼ã™ã¨1å ´é¢é€²ã‚€
     {
         z_key=1;z_up=0;
         if(stage_start==0 && clear_flag==0)
         {
             stage_start=1;
             pause_flag=0;
-            if(stage==0)//ƒQ[ƒ€ŠJn
+            if(stage==0)//ã‚²ãƒ¼ãƒ é–‹å§‹
             {
                 stage=1;
                 Stage_Change();
             }
         }
     }
-    if(key==32 && stage_start!=0 && stage!=0)//SPACE‚ÍASCII‚Å32
-    {//ƒQ[ƒ€’†‚Éƒ|[ƒY
+    if(key==32 && stage_start!=0 && stage!=0)//SPACEã¯ASCIIã§32
+    {//ã‚²ãƒ¼ãƒ ä¸­ã«ãƒãƒ¼ã‚º
         if(pause_key==0)
         {
             pause_flag^=1;pause_key=1;
@@ -1643,14 +1643,14 @@ void Keyboard(char  key,int x,int y)//ƒL[“ü—Í
     }
     else if(key==27)
     {
-        exit(1);//ƒQ[ƒ€I—¹
+        exit(1);//ã‚²ãƒ¼ãƒ çµ‚äº†
     }
 }
-void KeyboardUp(char key,int x,int y)//ƒL[UPˆ—
+void KeyboardUp(char key,int x,int y)//ã‚­ãƒ¼UPå‡¦ç†
 {
-    if(key==32)//ƒ|[ƒY‰ğœ
+    if(key==32)//ãƒãƒ¼ã‚ºè§£é™¤
         pause_key=0;
-    if(key=='z' && stage_start==0)//ƒV[ƒ“’†
+    if(key=='z' && stage_start==0)//ã‚·ãƒ¼ãƒ³ä¸­
     {
         z_key=0;z_up=1;
     }
@@ -1668,19 +1668,19 @@ void KeyboardUp(char key,int x,int y)//ƒL[UPˆ—
         default:break;
     }
 }
-void SpecialKey(int key,int x,int y)//ƒL[ˆ—
+void SpecialKey(int key,int x,int y)//ã‚­ãƒ¼å‡¦ç†
 {
-    if(die_t!=0)//€–S’†
+    if(die_t!=0)//æ­»äº¡ä¸­
         return;
-    switch(key)//lŠÔ‚Íã‚Æ‰º‚É‚ÍˆÚ“®‚Å‚«‚È‚¢‚ªA“G‚Í‚Å‚«‚é‚½‚ß
-    {//cursor_flag‚Í2‚Æ3
+    switch(key)//äººé–“ã¯ä¸Šã¨ä¸‹ã«ã¯ç§»å‹•ã§ããªã„ãŒã€æ•µã¯ã§ãã‚‹ãŸã‚
+    {//cursor_flagã¯2ã¨3
         case GLUT_KEY_RIGHT:cursor_flag=2;direction=2;cursor_key=2;break;
         case GLUT_KEY_LEFT:cursor_flag=3;direction=3;cursor_key=3;break;
 
         default:break;
     }
 }
-void SpecialUpKey(int key,int x,int y)//ƒL[UPˆ—
+void SpecialUpKey(int key,int x,int y)//ã‚­ãƒ¼UPå‡¦ç†
 {
     switch(key)
     {

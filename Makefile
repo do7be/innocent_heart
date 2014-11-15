@@ -3,36 +3,36 @@
 #
 
 
-#   ÅI–Ú“I‚Ìƒtƒ@ƒCƒ‹
+#   æœ€çµ‚ç›®çš„ã®ãƒ•ã‚¡ã‚¤ãƒ«
 TARGET = j06441.exe
 
-#   ƒ\[ƒXƒtƒ@ƒCƒ‹(*.c)‚Ìˆê——
+#   ã‚½ãƒ¼ã‚¹ãƒ•ã‚¡ã‚¤ãƒ«(*.c)ã®ä¸€è¦§
 SRCS = Innocent_Heart.c
 
-#   ƒIƒuƒWƒFƒNƒgƒtƒ@ƒCƒ‹(*.o)‚Ìˆê——
+#   ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆãƒ•ã‚¡ã‚¤ãƒ«(*.o)ã®ä¸€è¦§
 OBJS = ${SRCS:.c=.o}
 
-#   ƒwƒbƒ_ƒtƒ@ƒCƒ‹‚Ìˆê——
+#   ãƒ˜ãƒƒãƒ€ãƒ•ã‚¡ã‚¤ãƒ«ã®ä¸€è¦§
 HEADERS =
 
-#   ƒRƒ“ƒpƒCƒ‰EƒŠƒ“ƒJ‚ÌŽw’è
+#   ã‚³ãƒ³ãƒ‘ã‚¤ãƒ©ãƒ»ãƒªãƒ³ã‚«ã®æŒ‡å®š
 CC = gcc 
 CCFLAGS = -Wall -I/usr/include/opengl 
 LD = gcc 
-LDFLAGS = #-mwindows -mno-cygwin#DOS‘‹‚©‚çŽÀs‚Å‚«‚é‚æ‚¤‚É‚·‚é(–¢Š®¬)
+LDFLAGS = #-mwindows -mno-cygwin#DOSçª“ã‹ã‚‰å®Ÿè¡Œã§ãã‚‹ã‚ˆã†ã«ã™ã‚‹(æœªå®Œæˆ)
 LIBS = -lglpng -lglut32 -lglu32 -lopengl32 icon.o
 
-#   OBJS‚©‚çTARGET‚ðì‚é•û–@
+#   OBJSã‹ã‚‰TARGETã‚’ä½œã‚‹æ–¹æ³•
 $(TARGET) : $(OBJS)
 	 $(LD) $(OBJS) $(LDFLAGS) -o $(TARGET) $(LIBS)
 
-#   *.c ‚©‚ç*.o‚ðì‚é•û–@
+#   *.c ã‹ã‚‰*.oã‚’ä½œã‚‹æ–¹æ³•
 .c.o :
 	 $(CC) $(CCFLAGS) -c $<
 
-#   *.o ‚Í HERDERS ‚Æ Makefile ‚ÉˆË‘¶(‚±‚ê‚ç‚ª‘‚«Š·‚í‚Á‚½‚Æ‚«‚É‚à*.o‚ðÄ\’z)
+#   *.o ã¯ HERDERS ã¨ Makefile ã«ä¾å­˜(ã“ã‚Œã‚‰ãŒæ›¸ãæ›ã‚ã£ãŸã¨ãã«ã‚‚*.oã‚’å†æ§‹ç¯‰)
 $(OBJS) : $(HEADERS) Makefile
 
-#   make clean‚Æ‚µ‚½‚Æ‚«‚ÉŽÀs‚³‚ê‚éƒRƒ}ƒ“ƒh
+#   make cleanã¨ã—ãŸã¨ãã«å®Ÿè¡Œã•ã‚Œã‚‹ã‚³ãƒžãƒ³ãƒ‰
 clean :
 	 rm -f $(TARGET) $(OBJS) core *~
