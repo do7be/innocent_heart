@@ -1,4 +1,4 @@
-.DS_Store
-*.exe
-*.tar
-
+*.log
+bower_components
+dist/js
+node_modules
