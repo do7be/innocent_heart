@@ -25,7 +25,8 @@ Menu:: =
 #    , 1000, Phaser.Easing.Linear.NONE, true, 0, 1000, true
 
   update: ->
-    @stage = 1
-    @game.state.start "prestage"  if @game.input.activePointer.justPressed()
+    if @game.input.activePointer.justPressed()
+      @game.var.stage = 1
+      @game.state.start "prestage"  
 
 module.exports = Menu
