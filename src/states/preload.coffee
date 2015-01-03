@@ -14,6 +14,9 @@ Preload:: =
     @load.image "char2", "assets/char_2.png"
     @load.image "thunder2", "assets/thunder_2.png"
 
+    @load.image   "stage1tile", "assets/tilemaps/tiles/stage1.png"
+    @load.tilemap "stage1csv",  "assets/tilemaps/csv/stage1.csv", null, Phaser.Tilemap.TILED_CSV
+
   create: ->
     @asset.cropEnabled = false
 

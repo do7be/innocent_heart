@@ -1,53 +1,54 @@
 Play = ->
 "use strict"
 Play:: =
+  TILE_SIZE: 32
+
   create: ->
     @game.physics.startSystem Phaser.Physics.ARCADE
-    @bird = @game.add.sprite(100, 245, "char2")
 
-    @game.physics.arcade.enable @bird
+    @layer = @createGround()
+    @player = @createPlayer()
 
-    @bird.body.gravity.y = 1000
+    @cursors = @game.input.keyboard.createCursorKeys()
 
     spaceKey = @game.input.keyboard.addKey(Phaser.Keyboard.SPACEBAR)
     spaceKey.onDown.add(@jump, @)
 
-    @pipes = @game.add.group()
-    @pipes.enableBody = true
-    @pipes.createMultiple(20, 'thunder2')
+  createGround: ->
+    map = @game.add.tilemap('stage1csv', @TILE_SIZE, @TILE_SIZE)
+    map.addTilesetImage('stage1tile')
 
-    @timer = @game.time.events.loop(1500, @addRowOfPipes, @)
+    map.setCollision(2)
 
-    @score = 0
-    @labelScore = @game.add.text(20, 20, "0", font: "30px Arial", fill: "#ffffff")
+    layer = map.createLayer(0)
+    layer.resizeWorld()
 
-  addOnePipe: (x, y) ->
-    pipe = @pipes.getFirstDead()
-    pipe.reset(x, y)
-    pipe.body.velocity.x = -200
-    pipe.checkWorldBounds = true
-    pipe.outOfBoundsKill = true
+    layer
 
-  addRowOfPipes: ->
-    hole = Math.floor(Math.random() * 5) + 1
+  createPlayer: ->
+    player = @game.add.sprite(0, @TILE_SIZE * 12, "char2")
 
-    for i in [1..6]
-      if i != hole && i != hole + 1
-        @addOnePipe(400, i * 60 + 10)
+    @game.physics.arcade.enable player, Phaser.Physics.ARCADE
 
-    @score += 1
-    @labelScore.text = @score
+    player.body.gravity.y = 1000
 
-  update: ->
-    if @bird.inWorld == false
-      @restartGame()
+    @game.camera.follow(player)
 
-    @game.physics.arcade.overlap(@bird, @pipes, @restartGame, null, @)
+    player
 
   jump: ->
-    @bird.body.velocity.y = -350
+    if @player.body.onFloor()
+      @player.body.velocity.y = -400
 
-  restartGame: ->
-    @game.state.start('gameover')
+  update: ->
+    @game.physics.arcade.collide(@player, @layer)
+
+    @player.body.velocity.x = 0
+
+    switch
+      when @cursors.left.isDown
+        @player.body.velocity.x = -200
+      when @cursors.right.isDown
+        @player.body.velocity.x = 200
 
 module.exports = Play
