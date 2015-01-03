@@ -98,6 +98,11 @@ module.exports = (grunt) ->
         src: ["game/main.js"]
         dest: "dist/js/game.js"
 
+    'gh-pages':
+      options:
+        base: 'dist'
+      src: ['**']
+
   grunt.registerTask "build", [
     "clean"
     "coffee"
