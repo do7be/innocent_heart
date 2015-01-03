@@ -2,6 +2,6 @@
   "name": "innocent-heart",
   "version": "0.0.0",
   "dependencies": {
-    "phaser-official": "2.1.3"
+    "phaser-official": "2.2.1"
   }
 }
