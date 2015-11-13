@@ -5,7 +5,7 @@
 #include<math.h>
 #include<string.h>
 #include<gl/glpng.h>
-#include<stdlib.h> 
+#include<stdlib.h>
 
 void Display(void);
 void Reshape(int w,int h);
@@ -36,7 +36,7 @@ void Game_Clear(void);//ゲームクリア後の処理
 #define WindowWidth 640//ウィンドウの大きさ
 #define WindowHeight 480
 #define MapWidth 100
-#define MapHeight 15
+#define MapHeight 16
 #define Tex_NUM 3//マップイメージ数
 #define Scene_NUM 14//シーンのイメージ数
 #define NUM_IMAGE 4//数字画像の数
@@ -267,15 +267,15 @@ int main(int argc, char **argv)
         sprintf(file_name,"image/boss_%d.png",i+1);
         boss.texture[i] = pngBind(file_name, PNG_NOMIPMAP, PNG_ALPHA, &boss.info[i], GL_CLAMP, GL_NEAREST, GL_NEAREST);
     }
-    
+
     init();//初期化
-    
+
     glEnable(GL_BLEND);//テクスチャのアルファチャンネル有効
     glBlendFunc(GL_SRC_ALPHA,GL_ONE_MINUS_SRC_ALPHA);
     glTexEnvf(GL_TEXTURE_ENV,GL_TEXTURE_ENV_MODE,GL_MODULATE);
 
     glEnable(GL_CULL_FACE);
-    
+
     glutDisplayFunc(Display);//Display定義
     glutReshapeFunc(Reshape);//Reshape定義
     glutTimerFunc(500,Timer,0);//0.5秒ずつ呼び出し
@@ -284,7 +284,7 @@ int main(int argc, char **argv)
     glutKeyboardUpFunc(KeyboardUp);
     glutSpecialFunc(SpecialKey);
     glutSpecialUpFunc(SpecialUpKey);
-    
+
     glutMainLoop();
 
     return(0);
@@ -293,7 +293,7 @@ int main(int argc, char **argv)
 void init(void)//初期化 コンテニュー時などで呼ぶ
 {
     int i;
-    
+
     cursor_flag=0;cursor_key=0;direction=2;
     jump_flag=0;fall_flag=0;jump_t=0;
     if(boss.flag==1)//復活後のキャラクターの位置(ボス戦)
@@ -308,7 +308,7 @@ void init(void)//初期化 コンテニュー時などで呼ぶ
     right_end_flag=0;//右端のカメラ固定を解除
     pause_flag=1;
     die_t=0;//死亡時間0=死んでいない
-    
+
     for(i=0;i<Attack_NUM;i++)
     {
         attack[i].flag=0;
@@ -333,7 +333,7 @@ void init(void)//初期化 コンテニュー時などで呼ぶ
         boss_attack[i].flag=0;//ボスの攻撃を消す
         boss_attack[i].t=0;
     }
-    
+
     for(i=0;i<Attack_NUM;i++)
         attack[i].limit=3;//魔法使用回数初期化
     clear_flag=0;clear_scene=4;z_up=1;//ゲームクリア用
@@ -346,12 +346,12 @@ void init(void)//初期化 コンテニュー時などで呼ぶ
 void Display(void)
 {
     int i,j,n=0;
-    
+
     if(stage==0 || stage_start==0)//タイトル画面かステージ開始時かクリア後
     {
         return;
     }
-    
+
     glClear(GL_COLOR_BUFFER_BIT);
 
     if(x_char > WindowWidth/2)//真ん中より右に行ったとき
@@ -376,7 +376,7 @@ void Display(void)
             PutMap(map[i][j+n],j,i*map_info->Height,n);
         }
     }
-    
+
     //+++++++++++各キャラクターや攻撃の処理+++++++++++++++++++
     PutChar();
     if(boss.flag==1)//ボス戦
@@ -440,7 +440,7 @@ void Timer(int value)
             walk_count=0;
             walk_flag=walk_flag^1;//歩行絵切り替え
         }
-        
+
         if(die_t!=0)//死んだとき
             Die();
     }
@@ -485,7 +485,7 @@ void PutMap(char map,int x,int y,int n)//マップ表示
         x*=map_info->Width;
 
     glBindTexture(GL_TEXTURE_2D, map_texture[tex]);
-        
+
     PutSprite(x,y,Char_Size,Char_Size);
 }
 void PutChar(void)//キャラ表示
@@ -554,7 +554,7 @@ void PutMagic(int n)//残り魔法使用回数表示
 
     x=0;
     y=Char_Size*(n-1);
-    
+
     glBindTexture(GL_TEXTURE_2D, item_texture[n-1]);//残り使用回数の背景
     PutSprite(x,y,Char_Size,Char_Size);
     glBindTexture(GL_TEXTURE_2D, num_texture[attack[n].limit]);//残り使用回数
@@ -566,7 +566,7 @@ void PutLife()//ボスの残りライフ表示
 
     x=WindowWidth;
     y=0;
-    
+
     for(i=1;i<=boss.life;i++)//残りライフの分ハートを表示
     {
         glBindTexture(GL_TEXTURE_2D, life_texture);//残り使用回数の背景
@@ -619,7 +619,7 @@ void Attack(int what)//攻撃処理
         attack[what].y=y_char;
         Anime(what,0,0);
         attack[what].t++;
-        
+
         if(attack[what].t>=10)
         {
             attack[what].t=0;
@@ -656,7 +656,7 @@ void Attack(int what)//攻撃処理
 
         Anime(what,0,0);
         attack[what].t++;
-        
+
         if(attack[what].t>=30)
         {
             attack[what].t=0;
@@ -685,7 +685,7 @@ void Attack(int what)//攻撃処理
 
         Anime(what,0,0);
         attack[what].t++;
-        
+
         if(attack[what].t>=45)
         {
             attack[what].t=0;
@@ -724,7 +724,7 @@ void Attack_teki(int n)//敵の攻撃処理
             if(teki[n].direction==2)
                 teki_attack[n].x_move=Step*2;
             else
-                teki_attack[n].x_move=-1*Step*2;                
+                teki_attack[n].x_move=-1*Step*2;
             teki_attack[n].y_move=0;
         }
     }
@@ -740,7 +740,7 @@ void Attack_teki(int n)//敵の攻撃処理
 
     Anime(-1,n,0);//アニメを表示
     teki_attack[n].t++;
-    
+
     if(teki_attack[n].t>=60)
     {
         teki_attack[n].t=0;
@@ -840,7 +840,7 @@ void Attack_boss(int n)//ボスの攻撃処理
     for(i=0;i<3;i++)
         Anime(-2,n,i);//アニメを表示
     boss_attack[n].t++;
-    
+
     if(boss_attack[n].t>=90)
     {
         boss_attack[n].t=0;
@@ -903,7 +903,7 @@ void Anime(int what,int teki_n,int boss_n)//攻撃などのアニメ
         else
             x=teki_attack[teki_n].x;
         t_tmp=teki_attack[teki_n].t%3;
-        
+
         if(t_tmp==0)
             tex=0;
         else if(t_tmp==1)
@@ -919,7 +919,7 @@ void Anime(int what,int teki_n,int boss_n)//攻撃などのアニメ
             x=boss_attack[teki_n].x[boss_n]-x_char+WindowWidth/2;
         else
             x=boss_attack[teki_n].x[boss_n];
-        
+
         if(teki_n==0)//ダークサンダー用
             t_tmp=boss_attack[teki_n].t%2+1;
         else//ブルーファイアとウォーターバルーンとメテオ用
@@ -968,7 +968,7 @@ void Anime(int what,int teki_n,int boss_n)//攻撃などのアニメ
 void Teki_hantei(void)//++++++++++++++++++敵との衝突や攻撃、アイテムの判定など+++++++++++
 {
     int i,j;
-    
+
     //++++++++++++++++++++++++++++++++敵とアイテムの処理+++++++けっこうややこしい+++++
     for(i=0;i<Teki_NUM;i++)//画面外の敵は描画したくないための処理
     {
@@ -1065,7 +1065,7 @@ void Teki_hantei(void)//++++++++++++++++++敵との衝突や攻撃、アイテ�
 void Boss_hantei(void)//+++++++++++++++++++++ボスの処理++++++++++++++++
 {
     int i,j;
-    
+
     if(boss.nodamage_t!=0)
         boss.nodamage_t--;
 
@@ -1227,7 +1227,7 @@ void Kabe_hantei(int who,int n)    //+++++++++++移動先が壁かどうか判�
         else if(n%4==1)
         {
             step_temp=Step;
-            teki_temp=20;            
+            teki_temp=20;
         }
         else
         {
@@ -1330,7 +1330,7 @@ void Kabe_hantei(int who,int n)    //+++++++++++移動先が壁かどうか判�
                 {
                     cursor=0;
                 }
-                
+
                 if(who==1 && n%4!=2)//歩く敵の場合、段差から落ちないように
                 {
                     cx=(x+Char_Size)/Char_Size;
@@ -1338,7 +1338,7 @@ void Kabe_hantei(int who,int n)    //+++++++++++移動先が壁かどうか判�
                     {
                         cursor=0;
                         teki[n].direction=3;
-                    }            
+                    }
                 }
             }
             break;
@@ -1355,7 +1355,7 @@ void Kabe_hantei(int who,int n)    //+++++++++++移動先が壁かどうか判�
                 {
                     cursor=0;
                     teki[n].direction=2;
-                }            
+                }
             }
             break;
         case 4://↓
@@ -1407,7 +1407,7 @@ void Die(void)//死亡後の処理
         die_t=120;
         cursor_flag=0;cursor_key=0;
     }
-        
+
     die_t--;
     if(die_t==0)//死亡終わり
     {
@@ -1418,9 +1418,9 @@ void Stage_Change(void)//ステージを変える
 {
     int i;
     char file_name[20];
-        
+
     init();//初期化
-    
+
     stage_start=0;//ステージが開始されない
     pause_flag=1;
 
@@ -1441,7 +1441,7 @@ void Stage_Change(void)//ステージを変える
         PutSprite(0,0,WindowWidth,WindowHeight);
         glFlush();
         glutSwapBuffers();
-    
+
         //+++++++++++マップ画像読み込み++++++++++++++++++++++++++++
         for(i=0;i<Tex_NUM;i++)
         {
@@ -1464,7 +1464,7 @@ void Stage_Change(void)//ステージを変える
         strcpy(map[12],"AAAAAAAAAAAAAAAACCCCAAAAAAAAACAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAABAACAAAAAABAAAAAAAAAAAAAAAAAAAAAA");
         strcpy(map[13],"CCCCCCCCCCCCCCCCCCCCCCCAAAAAACCCCCCCCCCCCCAACCCCCCCCCCCCCCCCCCCAACAAAACAABACAAAACABAACCCCCCCCCCCCCCC");
         strcpy(map[14],"CCCCCCCCCCCCCCCCCCCCAAAAABAAACCCCCCCCCCCCCAACCCCCCCCCCCCCCCCCCCAACAAAACAAAACAAAACAAAACCCCCCCCCCCCCCC");
-        
+
         //++++++++++++敵の初期設定+++++++++++++++++++++++
         teki[0].x=Char_Size*6;teki[0].y=Char_Size*8;
         teki[1].x=Char_Size*5;teki[1].y=Char_Size*3;
@@ -1491,9 +1491,9 @@ void Stage_Change(void)//ステージを変える
         teki[22].x=Char_Size*95;teki[22].y=Char_Size*2;
         teki[23].x=Char_Size*96;teki[23].y=Char_Size*12;
         teki[24].x=Char_Size*93;teki[24].y=Char_Size*12;
-        
+
         sleep(1);//ローディング画面のウェイト
-        
+
         //++++++++++++STAGE開始の背景++++++++++++++++++++++++
         glClear(GL_COLOR_BUFFER_BIT);
         glBindTexture(GL_TEXTURE_2D,scene_texture[2]);
@@ -1516,13 +1516,13 @@ void Stage_Change(void)//ステージを変える
             sprintf(file_name,"image/map2_%d.png",i+1);
             map_texture[i] = pngBind(file_name, PNG_NOMIPMAP, PNG_ALPHA, &map_info[i], GL_CLAMP, GL_NEAREST, GL_NEAREST);
         }
-        
+
         strcpy(map[ 0],"CAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAA");
         strcpy(map[ 1],"CAAAABAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAABAAAAAAAAAAA");
         strcpy(map[ 2],"CAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAACAAAAAAACCCCCCCCCCCCCCCCAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAA");
         strcpy(map[ 3],"CAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAACAAAAACAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAA");
         strcpy(map[ 4],"CAAAAAAAACAAAAAAAAAAACAACCCCCCCCCAACCCCCCCAACAAAAAAAAAAAAAAAAAAAAAACAAAAAAABAACAAAAAAAAAAAABAAAAAAAA");
-        strcpy(map[ 5],"CAAAAAAAAAAAAAAAAAAAACAAAAAAAAAACCCCAAAAAAAACCCCCCCCCCCCCCCAAAAAAAACAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAA");    
+        strcpy(map[ 5],"CAAAAAAAAAAAAAAAAAAAACAAAAAAAAAACCCCAAAAAAAACCCCCCCCCCCCCCCAAAAAAAACAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAA");
         strcpy(map[ 6],"CAAAACAAAABACAAABACAACAAAAAAAAAAACAAAAAAAAAACAAAAAAAAAAAAAAAACCAAAACAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAA");
         strcpy(map[ 7],"CAAAAAAAAAAAAAAAAAAAACAACCCCCCCAACAAACCCCCCCCAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAACAAAAAACCAAAACCAAAAAAA");
         strcpy(map[ 8],"CAAAAAACAAAAAAACAAAAACAAAAAAAAAAACCAAAAABAAAAAAAAAAAAAAAAAAAAAAAACACAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAA");
@@ -1532,7 +1532,7 @@ void Stage_Change(void)//ステージを変える
         strcpy(map[12],"AAAAAAAAAAAAAAAAAAAAACAAAACCCCAAACCAAAACCAAAAAAAAAAAAACBAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA");
         strcpy(map[13],"CCCCCCCCCCCCCCCCCCCCCCAAAAAAAAAAAAAAAAAAAAACAAAAACAAAAAAAAAAAAAAAAACCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC");
         strcpy(map[14],"CCCCCCCCCCCCCCCCCCCCCCAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC");
-        
+
         //++++++++++++敵の初期設定+++++++++++++++++++++++
         teki[0].x=Char_Size*6;teki[0].y=Char_Size*12;
         teki[1].x=Char_Size*14;teki[1].y=Char_Size*12;
@@ -1561,9 +1561,9 @@ void Stage_Change(void)//ステージを変える
         teki[23].x=Char_Size*150;teki[23].y=Char_Size*12;
         teki[24].x=Char_Size*150;teki[24].y=Char_Size*12;
         boss.x=Char_Size*96;boss.y=Char_Size*11;boss.life=20;
-        
+
         sleep(1);//ローディング画面のウェイト
-        
+
         //++++++++++++STAGE開始の背景++++++++++++++++++++++++
         glClear(GL_COLOR_BUFFER_BIT);
         glBindTexture(GL_TEXTURE_2D,scene_texture[3]);
@@ -1577,21 +1577,21 @@ void Game_Clear(void)
     if((z_key==1 && z_up==0) || clear_scene==4)//押しっぱなしでも進まない。zを押したときとクリア直後
     {
         z_key=0;
-        
+
         if(clear_scene==Scene_NUM)//Finまで表示した
         {
             stage=0;
             Stage_Change();
             return;
         }
-        
+
         //++++++++++++タイトル描画++++++++++++++++++++++++
         glClear(GL_COLOR_BUFFER_BIT);
         glBindTexture(GL_TEXTURE_2D,scene_texture[clear_scene]);
         PutSprite(0,0,WindowWidth,WindowHeight);
         glFlush();
         glutSwapBuffers();
-        
+
         clear_scene++;
         sleep(1);
     }
@@ -1657,7 +1657,7 @@ void KeyboardUp(char key,int x,int y)//キーUP処理
     if(pause_flag==1)
         return;
     switch(key)
-    { 
+    {
         case 'x':jump_key=0;break;
         case 'z':z_key=0;break;
         case 'a':a_key=0;break;
