@@ -137,7 +137,7 @@ static struct item_status item[Teki_NUM];//アイテムの数=敵の数
 static struct boss_status boss;//ボス情報
 static struct boss_attack_anime boss_attack[Boss_Attack_NUM];//ボスの攻撃
 
-char map[MapHeight][MapWidth];
+char map[MapHeight][MapWidth+1];
 
 //
 //Program start
