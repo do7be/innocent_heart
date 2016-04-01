@@ -12,6 +12,7 @@ Please download library.
 http://openports.se/graphics/glpng
 
 ```
+$ sudo mkdir /usr/local/include/GL
 $ sudo cp -p  ~/Downloads/glpng/include/GL/glpng.h /usr/local/include/GL/
 $ cd ~/Downloads/glpng/src
 $ mv Makefile.LINUX Makefile
