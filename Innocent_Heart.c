@@ -35,7 +35,7 @@ void Game_Clear(void);//ゲームクリア後の処理
 
 #define WindowWidth 640//ウィンドウの大きさ
 #define WindowHeight 480
-#define MapWidth 100
+#define MapWidth 101
 #define MapHeight 16
 #define Tex_NUM 3//マップイメージ数
 #define Scene_NUM 14//シーンのイメージ数
