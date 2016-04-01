@@ -1,5 +1,6 @@
 Boot = ->
 "use strict"
+
 Boot:: =
   preload: ->
     @load.image "preloader", "assets/preloader.gif"
