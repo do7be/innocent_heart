@@ -13,3 +13,10 @@ how-to develop
     % cd innocent_heart
     % npm install yo bower grunt-cli -g
     % grunt
+
+## Client App
+
+```
+$ git checkout c
+$ less README.md
+```
