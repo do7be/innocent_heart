@@ -26,6 +26,7 @@ $ vi glpng.c
 
 $ make
 $ cp -p ../lib/libglpng.a your/dir/innocent_heart/
+$ sudo ln -s /System/Library/Frameworks/GLUT.framework/Headers/glut.h /usr/local/include/GL
 ```
 
 ## Compile
