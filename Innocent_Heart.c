@@ -1,4 +1,4 @@
-#include<gl/glut.h>
+#include<GLUT/glut.h>
 #include<time.h>
 #include<stdio.h>
 #include<unistd.h>
