@@ -1,10 +1,10 @@
-#include<GL/glut.h>
+#include<GLUT/glut.h>
 #include<time.h>
 #include<stdio.h>
 #include<unistd.h>
 #include<math.h>
 #include<string.h>
-#include<GL/glpng.h>
+#include<gl/glpng.h>
 #include<stdlib.h>
 
 void Display(void);

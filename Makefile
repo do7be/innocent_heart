@@ -17,7 +17,7 @@ HEADERS =
 
 #   コンパイラ・リンカの指定
 CC = gcc
-CCFLAGS = -Wall -I/usr/include/opengl -I/usr/include/GL
+CCFLAGS = -Wall -I/usr/include/opengl
 LD = gcc
 LDFLAGS = #-mwindows -mno-cygwin#DOS窓から実行できるようにする(未完成)
 LIBS = -lglpng -lglut32 -lglu32 -lopengl32 icon.o
