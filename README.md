@@ -1,4 +1,10 @@
-https://do7be.github.io/try-rust-bevy/
+## Play
+
+https://do7be.github.io/innocent_heart/
+
+## Original Code Branch
+
+https://github.com/do7be/innocent_heart/tree/c
 
 ## 既知の問題点
 
