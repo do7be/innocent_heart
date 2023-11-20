@@ -2078,6 +2078,7 @@ pub mod game_scene {
         wall_query: Query<&Transform, (With<Wall>, Without<EnemyCharacter>, Without<Camera2d>)>,
         camera_query: Query<&Transform, With<Camera2d>>,
         mut collision_events: EventWriter<CollisionEvent>,
+        stage_state: Res<State<StageState>>,
     ) {
         let camera_transform = camera_query.single();
         for (mut enemy_transform, mut enemy_charactor, maybe_enemy, maybe_boss) in &mut enemy_query
@@ -2134,31 +2135,19 @@ pub mod game_scene {
                 // 飛ぶ敵以外は進む先に床がなければ停止させる
                 if let Some(enemy) = maybe_enemy {
                     if enemy.kind != EnemyKind::RedDemon {
-                        let mut exist_floor = false;
-                        for wall_transform in &wall_query {
-                            let mut check_floor_position = next_time_translation;
-                            check_floor_position.x = match enemy_charactor.direction {
-                                AllDirection::Left => {
-                                    enemy_transform.translation.x - CHARACTER_SIZE
-                                }
-                                AllDirection::Right => {
-                                    enemy_transform.translation.x + CHARACTER_SIZE
-                                }
-                                _ => enemy_transform.translation.x,
-                            };
-                            check_floor_position.y -= 1.;
-                            let collision = collide(
-                                check_floor_position,
-                                Vec2::new(CHARACTER_SIZE, CHARACTER_SIZE),
-                                wall_transform.translation,
-                                Vec2::new(TILE_SIZE, TILE_SIZE),
-                            );
-                            if collision.is_some() {
-                                collision_events.send_default();
-                                exist_floor = true;
+                        let mut check_floor_position = next_time_translation;
+                        check_floor_position.x = match enemy_charactor.direction {
+                            AllDirection::Left => {
+                                enemy_transform.translation.x - CHARACTER_SIZE / 2.
                             }
-                        }
-                        if !exist_floor {
+                            AllDirection::Right => {
+                                enemy_transform.translation.x + CHARACTER_SIZE / 2.
+                            }
+                            _ => enemy_transform.translation.x,
+                        };
+                        check_floor_position.y -= TILE_SIZE;
+
+                        if !is_wall(check_floor_position, stage_state.get()) {
                             enemy_charactor.stop = true;
                             // 移動中止
                             break;
@@ -2262,5 +2251,29 @@ pub mod game_scene {
     fn is_inner_camera(camera_translation: Vec3, target_translation: Vec3) -> bool {
         target_translation.x >= camera_translation.x - 320. - 16.
             && target_translation.x < camera_translation.x + 320. + 16.
+    }
+
+    fn is_wall(position: Vec3, stage_state: &StageState) -> bool {
+        let mut map = match stage_state {
+            StageState::Stage1 => STAGE1_MAP,
+            StageState::Stage2 | StageState::Boss => STAGE2_MAP,
+        };
+        map.reverse();
+
+        // TODO: メモリに載せる
+        let walls = map
+            .to_vec()
+            .iter()
+            .map(|map_str| {
+                map_str
+                    .chars()
+                    .map(|char| char == 'C')
+                    .collect::<Vec<bool>>()
+            })
+            .collect::<Vec<Vec<bool>>>();
+        let column = (position.x / TILE_SIZE).round() as usize;
+        let row = (position.y / TILE_SIZE).round() as usize;
+
+        walls[row][column]
     }
 }
