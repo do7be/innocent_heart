@@ -1,0 +1,62 @@
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <style>
+      body {
+        display: grid;
+        grid-template-rows: auto 1fr;
+        grid-template-areas:
+          "canvas"
+          "description";
+        justify-content: center;
+        gap: 120px;
+        background-color: #eee;
+        margin-top: 40px;
+      }
+      canvas {
+        grid-area: canvas;
+        background-color: white;
+      }
+      .description {
+        grid-area: description;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+      }
+      .description ul {
+        padding-left: 14px;
+      }
+    </style>
+  </head>
+  <script type="module">
+    import init from './assets/js/game.js'
+    init()
+  </script>
+  <body>
+    <div class="description">
+      <div>
+        <p>操作説明（キーボード）</p>
+        <ul>
+          <li>←→：移動</li>
+          <li>Z：剣攻撃</li>
+          <li>X：ジャンプ</li>
+          <li>A：魔法 ファイア</li>
+          <li>S：魔法 アイス</li>
+          <li>D：魔法 サンダー</li>
+          <li>Z：ページ送り</li>
+        </ul>
+        </div>
+        <div>
+      <p>操作説明（コントローラー）</p>
+      <ul>
+        <li>十字キー、左スティック：移動</li>
+        <li>X（PSの□）：剣攻撃</li>
+        <li>A：ジャンプ</li>
+        <li>RB：魔法 ファイア</li>
+        <li>Y：魔法 アイス</li>
+        <li>B：魔法 サンダー</li>
+        <li>A：ページ送り</li>
+      </ul>
+    </div>
+  </div>
+  </body>
+</html>
