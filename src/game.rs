@@ -1,3 +1,7 @@
+use innocent_heart::consts::*;
+static mut STAGE1_WALLS: Vec<Vec<bool>> = vec![];
+static mut STAGE2_WALLS: Vec<Vec<bool>> = vec![];
+
 pub mod game_scene {
     use std::time::Duration;
 
@@ -265,6 +269,9 @@ pub mod game_scene {
         mut texture_atlases: ResMut<Assets<TextureAtlas>>,
         stage_state: Res<State<StageState>>,
     ) {
+        super::cache_stage1_walls();
+        super::cache_stage2_walls();
+
         // デスタイマー
         commands.insert_resource(DeathTimer(Timer::from_seconds(2.0, TimerMode::Once)));
         // サンダーを最初だけ一瞬止めるためのタイマー
@@ -2254,26 +2261,43 @@ pub mod game_scene {
     }
 
     fn is_wall(position: Vec3, stage_state: &StageState) -> bool {
-        let mut map = match stage_state {
-            StageState::Stage1 => STAGE1_MAP,
-            StageState::Stage2 | StageState::Boss => STAGE2_MAP,
+        let walls = match stage_state {
+            StageState::Stage1 => super::stage1_walls(),
+            StageState::Stage2 | StageState::Boss => super::stage2_walls(),
         };
-        map.reverse();
 
-        // TODO: メモリに載せる
-        let walls = map
-            .to_vec()
-            .iter()
-            .map(|map_str| {
-                map_str
-                    .chars()
-                    .map(|char| char == 'C')
-                    .collect::<Vec<bool>>()
-            })
-            .collect::<Vec<Vec<bool>>>();
         let column = (position.x / TILE_SIZE).round() as usize;
         let row = (position.y / TILE_SIZE).round() as usize;
 
         walls[row][column]
     }
+}
+
+fn walls(mut map: [&str; 15]) -> Vec<Vec<bool>> {
+    map.reverse();
+    map.to_vec()
+        .iter()
+        .map(|map_str| {
+            map_str
+                .chars()
+                .map(|char| char == 'C')
+                .collect::<Vec<bool>>()
+        })
+        .collect::<Vec<Vec<bool>>>()
+}
+
+fn cache_stage1_walls() {
+    unsafe { STAGE1_WALLS = walls(STAGE1_MAP) };
+}
+
+fn cache_stage2_walls() {
+    unsafe { STAGE2_WALLS = walls(STAGE2_MAP) };
+}
+
+fn stage1_walls() -> Vec<Vec<bool>> {
+    unsafe { STAGE1_WALLS.clone() }
+}
+
+fn stage2_walls() -> Vec<Vec<bool>> {
+    unsafe { STAGE2_WALLS.clone() }
 }
