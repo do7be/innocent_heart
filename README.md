@@ -58,3 +58,7 @@ https://github.com/do7be/innocent_heart/tree/c
 - [x] コントローラー
 - [x] canvas を中央に設置する
 - [x] 操作方法を記載
+
+## JS Project Branch (old)
+
+https://github.com/do7be/innocent_heart/tree/js
