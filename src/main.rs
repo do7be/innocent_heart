@@ -1,5 +1,5 @@
 use bevy::prelude::*;
-use try_rust_bevy::consts::*;
+use innocent_heart::consts::*;
 
 // 各シーン
 mod ending;

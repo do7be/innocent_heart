@@ -3,9 +3,9 @@ pub mod game_scene {
 
     use bevy::prelude::*;
     use bevy::sprite::collide_aabb::{collide, Collision};
+    use innocent_heart::consts::*;
+    use innocent_heart::utils::*;
     use rand::Rng;
-    use try_rust_bevy::consts::*;
-    use try_rust_bevy::utils::*;
 
     const FPS: usize = 60;
     const TIME_1F: f32 = 1. / FPS as f32;

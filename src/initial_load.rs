@@ -1,5 +1,5 @@
-use try_rust_bevy::consts::*;
-use try_rust_bevy::utils::*;
+use innocent_heart::consts::*;
+use innocent_heart::utils::*;
 
 // WebGLだとその画像が初めて表示されるときに画像ロードが始まって表示が遅れるので最初から全て読み込んでおくためのScene
 pub mod initial_load_scene {

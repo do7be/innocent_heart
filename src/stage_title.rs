@@ -1,9 +1,9 @@
-use try_rust_bevy::consts::*;
-use try_rust_bevy::utils::*;
+use innocent_heart::consts::*;
+use innocent_heart::utils::*;
 
 pub mod stage_title_scene {
     use bevy::prelude::*;
-    use try_rust_bevy::consts::BossState;
+    use innocent_heart::consts::BossState;
 
     use super::{despawn_screen, GameState, StageState};
 

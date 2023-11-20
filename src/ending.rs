@@ -1,5 +1,5 @@
-use try_rust_bevy::consts::*;
-use try_rust_bevy::utils::*;
+use innocent_heart::consts::*;
+use innocent_heart::utils::*;
 
 pub mod ending_scene {
     use bevy::prelude::*;
