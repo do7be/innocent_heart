@@ -1058,6 +1058,7 @@ pub mod game_scene {
         >,
         mut collision_events: EventWriter<CollisionEvent>,
         mut death_timer: ResMut<DeathTimer>,
+        stage_state: Res<State<StageState>>,
     ) {
         let (
             mut player_velocity,
@@ -1081,28 +1082,11 @@ pub mod game_scene {
 
             // 地面に接しているか検査
             if player.grounded {
-                // TODO: 独自実装にすることで全Wallを判定しないようにする
-                let mut grounded_translation = player_transform.translation;
-                grounded_translation.y -= 1.;
-                grounded_translation.x = next_time_translation.x;
+                let mut check_floor_position = next_time_translation;
+                check_floor_position.y -= TILE_SIZE;
 
-                let mut fall_flag = true;
-                for (_collider_entity, transform) in &collider_query {
-                    let collision = collide(
-                        grounded_translation,
-                        player_size,
-                        transform.translation,
-                        tile_size,
-                    );
-
-                    // 接してる壁があるなら落ちない
-                    if collision.is_some() {
-                        collision_events.send_default();
-                        fall_flag = false;
-                    }
-                }
                 // 接してる壁がないなら落ちる
-                if fall_flag {
+                if !is_wall(check_floor_position, stage_state.get()) {
                     player.grounded = false;
                     player.jump_status.jump = false;
                     player.jump_status.jump_start_y = player_transform.translation.y;
