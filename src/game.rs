@@ -2082,6 +2082,8 @@ pub mod game_scene {
                     // 移動中止
                     next_time_translation = enemy_transform.translation;
                 } else {
+                    // TODO: is_wall使うようにする
+                    // TODO: レッドデーモンは上下にも移動するのでxとyを入れ替えたバージョンの判定が必要（AllDirection::Upとかのやつ。matchで書けばよさそう）
                     // 壁判定
                     for wall_transform in &wall_query {
                         let collision = collide(
@@ -2097,6 +2099,13 @@ pub mod game_scene {
                             next_time_translation = enemy_transform.translation;
                             break;
                         }
+                    }
+
+                    // ボスはボス戦の画面より左に行かないようにする
+                    if maybe_boss.is_some() && next_time_translation.x < TILE_SIZE * 79. {
+                        enemy_charactor.stop = true;
+                        // 移動中止
+                        next_time_translation = enemy_transform.translation;
                     }
                 }
 
