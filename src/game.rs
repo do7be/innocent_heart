@@ -1093,27 +1093,27 @@ pub mod game_scene {
                     player.jump_status.fall_time = 0.;
                 }
             }
-        };
 
-        for (_collider_entity, transform) in &collider_query {
-            let collision = collide(
-                next_time_translation,
-                player_size,
-                transform.translation,
-                tile_size,
-            );
-            if let Some(collision) = collision {
-                collision_events.send_default();
+            // 移動先に壁があるかチェック
+            // y軸で2つの壁の中間にいるケースがあるのでその場合は2つの壁をチェック
+            let mut check_wall_position_1 = next_time_translation;
+            check_wall_position_1.x = match player.direction {
+                Direction::Left => check_wall_position_1.x - TILE_SIZE / 2.,
+                Direction::Right => check_wall_position_1.x + TILE_SIZE / 2. - 1.,
+            };
+            let mut check_wall_position_2 = check_wall_position_1;
+            check_wall_position_1.y -= next_time_translation.y % TILE_SIZE;
+            check_wall_position_2.y = check_wall_position_1.y + TILE_SIZE;
 
-                match collision {
-                    // 左右なら止める
-                    Collision::Left | Collision::Right => {
-                        next_time_translation.x = player_transform.translation.x;
-                    }
-                    Collision::Top | Collision::Bottom | Collision::Inside => {}
-                }
+            // 壁が存在するなら進まない
+            if is_wall(check_wall_position_1, stage_state.get())
+                // y軸で2つの壁の中間にいる場合は2つ目の壁の有無もチェック
+                || (next_time_translation.y % TILE_SIZE > 0.
+                    && is_wall(check_wall_position_2, stage_state.get()))
+            {
+                next_time_translation.x = player_transform.translation.x;
             }
-        }
+        };
 
         // 左右への移動
         if player.walk {
