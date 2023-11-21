@@ -621,7 +621,6 @@ pub mod game_scene {
         transform.translation.y = 224.; // 240 - 32 / 2
     }
 
-    #[allow(clippy::type_complexity)]
     fn move_player_weapon_limit(
         mut background_query: Query<
             &mut Transform,
@@ -868,8 +867,6 @@ pub mod game_scene {
         }
     }
 
-    #[allow(clippy::type_complexity)]
-    #[allow(clippy::too_many_arguments)]
     fn control_player_system_for_gamepad(
         gamepads: Res<Gamepads>,
         button_inputs: Res<Input<GamepadButton>>,
@@ -1008,7 +1005,6 @@ pub mod game_scene {
     }
 
     // プレイヤーの移動先の壁の判定と移動の実施
-    #[allow(clippy::type_complexity)]
     fn check_collision_wall_system(
         mut player_query: Query<
             (
@@ -1193,7 +1189,6 @@ pub mod game_scene {
         }
     }
 
-    #[allow(clippy::type_complexity)]
     fn check_collision_enemy_system(
         mut player_query: Query<
             (
@@ -1235,7 +1230,6 @@ pub mod game_scene {
     }
 
     // 自分の武器と敵の接触判定
-    #[allow(clippy::type_complexity)]
     fn check_collision_player_weapon_system(
         mut commands: Commands,
         enemy_query: Query<(Entity, &Transform), With<Enemy>>,
@@ -1316,7 +1310,6 @@ pub mod game_scene {
         }
     }
 
-    #[allow(clippy::type_complexity)]
     fn check_cllision_boss_system(
         mut player_query: Query<
             (
@@ -1357,7 +1350,6 @@ pub mod game_scene {
         }
     }
 
-    #[allow(clippy::type_complexity)]
     fn check_cllision_player_weapon_for_boss_system(
         mut commands: Commands,
         mut boss_query: Query<(&mut Boss, &Transform), With<Boss>>,
@@ -1414,7 +1406,6 @@ pub mod game_scene {
     }
 
     // 武器の移動
-    #[allow(clippy::type_complexity)]
     fn move_player_weapon_system(
         mut commands: Commands,
         mut player_query: Query<
@@ -1493,7 +1484,6 @@ pub mod game_scene {
     }
 
     // 敵の武器と自分の接触判定
-    #[allow(clippy::type_complexity)]
     fn check_collision_enemy_weapon_system(
         mut player_query: Query<
             (
@@ -1543,7 +1533,6 @@ pub mod game_scene {
     }
 
     // ザコ敵の武器の移動
-    #[allow(clippy::type_complexity)]
     fn move_enemy_weapon_system(
         mut commands: Commands,
         mut enemy_weapon_query: Query<
@@ -1571,7 +1560,6 @@ pub mod game_scene {
     }
 
     // ボスの武器の移動
-    #[allow(clippy::type_complexity)]
     fn move_boss_weapon_system(
         mut commands: Commands,
         mut enemy_weapon_query: Query<
@@ -1652,8 +1640,6 @@ pub mod game_scene {
         }
     }
 
-    #[allow(clippy::type_complexity)]
-    #[allow(clippy::too_many_arguments)]
     fn turn_around_boss_system(
         player_query: Query<&Transform, (With<Player>, Without<EnemyCharacter>)>,
         mut boss_query: Query<
@@ -1671,8 +1657,6 @@ pub mod game_scene {
         }
     }
 
-    #[allow(clippy::type_complexity)]
-    #[allow(clippy::too_many_arguments)]
     fn control_boss_system(
         player_query: Query<&Transform, (With<Player>, Without<EnemyCharacter>)>,
         mut boss_query: Query<
@@ -1866,8 +1850,6 @@ pub mod game_scene {
         }
     }
 
-    #[allow(clippy::type_complexity)]
-    #[allow(clippy::too_many_arguments)]
     fn control_enemy_system(
         player_query: Query<&Transform, (With<Player>, Without<EnemyCharacter>)>,
         mut enemy_query: Query<
@@ -2031,8 +2013,6 @@ pub mod game_scene {
         }
     }
 
-    #[allow(clippy::type_complexity)]
-    #[allow(clippy::too_many_arguments)]
     fn move_enemy_system(
         mut enemy_query: Query<
             (
@@ -2043,9 +2023,7 @@ pub mod game_scene {
             ),
             (With<EnemyCharacter>, Without<Player>, Without<Camera2d>),
         >,
-        wall_query: Query<&Transform, (With<Wall>, Without<EnemyCharacter>, Without<Camera2d>)>,
         camera_query: Query<&Transform, With<Camera2d>>,
-        mut collision_events: EventWriter<CollisionEvent>,
         stage_state: Res<State<StageState>>,
     ) {
         let camera_transform = camera_query.single();
