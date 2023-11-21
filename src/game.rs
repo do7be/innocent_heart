@@ -459,38 +459,6 @@ pub mod game_scene {
         asset_server: Res<AssetServer>,
         mut texture_atlases: ResMut<Assets<TextureAtlas>>,
     ) {
-        // 壁を出現
-        let walls = [
-            (78, 2),
-            (78, 3),
-            (99, 2),
-            (99, 3),
-            (99, 4),
-            (99, 5),
-            (99, 6),
-            (99, 7),
-            (99, 8),
-        ];
-        for (column, row) in walls {
-            commands.spawn((
-                OnGameScreen,
-                SpriteBundle {
-                    texture: asset_server.load("images/map/map2_3.png"),
-                    transform: Transform {
-                        translation: Vec3::new(
-                            TILE_SIZE * column as f32,
-                            CHARACTER_SIZE * row as f32,
-                            0.,
-                        ),
-                        ..default()
-                    },
-                    ..default()
-                },
-                Wall,
-                Collider,
-            ));
-        }
-
         // ザコ敵はすべて消す
         for enemy_entity in enemy_query.iter_mut() {
             commands.entity(enemy_entity).despawn();
@@ -1059,6 +1027,7 @@ pub mod game_scene {
         mut collision_events: EventWriter<CollisionEvent>,
         mut death_timer: ResMut<DeathTimer>,
         stage_state: Res<State<StageState>>,
+        boss_state: Res<State<BossState>>,
     ) {
         let (
             mut player_velocity,
@@ -1078,7 +1047,15 @@ pub mod game_scene {
                 Direction::Right => player_transform.translation.x + PLAYER_WALK_STEP,
             };
             // 画面外には移動できない
-            next_time_translation.x = next_time_translation.x.max(0.);
+            next_time_translation.x = next_time_translation
+                .x
+                .max(0.)
+                .min(TILE_SIZE * (MAP_WIDTH_TILES - 2) as f32);
+
+            // ボス戦中は外に出られない
+            if boss_state.get() == &BossState::Active && next_time_translation.x < TILE_SIZE * 79. {
+                next_time_translation.x = player_transform.translation.x;
+            }
 
             // 地面に接しているか検査
             if player.grounded {
@@ -2129,7 +2106,7 @@ pub mod game_scene {
                         let mut check_floor_position = next_time_translation;
                         check_floor_position.x = match enemy_charactor.direction {
                             AllDirection::Left => {
-                                enemy_transform.translation.x - CHARACTER_SIZE / 2.
+                                enemy_transform.translation.x - CHARACTER_SIZE / 2. - 1.
                             }
                             AllDirection::Right => {
                                 enemy_transform.translation.x + CHARACTER_SIZE / 2.
