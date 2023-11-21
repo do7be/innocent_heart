@@ -2082,23 +2082,44 @@ pub mod game_scene {
                     // 移動中止
                     next_time_translation = enemy_transform.translation;
                 } else {
-                    // TODO: is_wall使うようにする
-                    // TODO: レッドデーモンは上下にも移動するのでxとyを入れ替えたバージョンの判定が必要（AllDirection::Upとかのやつ。matchで書けばよさそう）
-                    // 壁判定
-                    for wall_transform in &wall_query {
-                        let collision = collide(
-                            next_time_translation,
-                            Vec2::new(CHARACTER_SIZE, CHARACTER_SIZE),
-                            wall_transform.translation,
-                            Vec2::new(TILE_SIZE, TILE_SIZE),
-                        );
-                        if collision.is_some() {
-                            collision_events.send_default();
-                            enemy_charactor.stop = true;
-                            // 移動中止
-                            next_time_translation = enemy_transform.translation;
-                            break;
+                    // 移動先に壁があるかチェック
+                    // 縦移動はx軸、横移動はy軸で2つの壁の中間にいるケースがあるのでその場合は2つの壁をチェック
+                    let mut check_wall_position_1 = next_time_translation;
+                    match enemy_charactor.direction {
+                        AllDirection::Left => {
+                            check_wall_position_1.x -= TILE_SIZE / 2.;
                         }
+                        AllDirection::Right => {
+                            check_wall_position_1.x += TILE_SIZE / 2. - 1.;
+                        }
+                        AllDirection::Up => {
+                            check_wall_position_1.y += TILE_SIZE / 2. - 1.;
+                        }
+                        AllDirection::Down => {
+                            check_wall_position_1.y -= TILE_SIZE / 2.;
+                        }
+                    };
+                    let mut check_wall_position_2 = check_wall_position_1;
+                    match enemy_charactor.direction {
+                        AllDirection::Left | AllDirection::Right => {
+                            check_wall_position_1.y -= next_time_translation.y % TILE_SIZE;
+                            check_wall_position_2.y = check_wall_position_1.y + TILE_SIZE;
+                        }
+                        AllDirection::Up | AllDirection::Down => {
+                            check_wall_position_1.x -= next_time_translation.x % TILE_SIZE;
+                            check_wall_position_2.x = check_wall_position_1.x + TILE_SIZE;
+                        }
+                    };
+
+                    // 壁が存在するなら進まない
+                    if is_wall(check_wall_position_1, stage_state.get())
+                        // x/y軸で2つの壁の中間にいる場合は2つ目の壁の有無もチェック
+                        || ((next_time_translation.x % TILE_SIZE > 0. || next_time_translation.y % TILE_SIZE > 0.)
+                            && is_wall(check_wall_position_2, stage_state.get()))
+                    {
+                        enemy_charactor.stop = true;
+                        // 移動中止
+                        next_time_translation = enemy_transform.translation;
                     }
 
                     // ボスはボス戦の画面より左に行かないようにする
