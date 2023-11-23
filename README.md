@@ -1,7 +1,4 @@
-innocent_heart
-==============
-
-project of innocent heart on web
+# innocent_heart
 
 This branch is original source of the "Innocent Heart".
 
@@ -36,5 +33,3 @@ $ cd your/dir/innocent_heart/
 $ gcc -framework GLUT -framework OpenGL -o game Innocent_Heart.c libglpng.a
 $ ./game
 ```
-
-
