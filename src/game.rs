@@ -2093,22 +2093,25 @@ pub mod game_scene {
                             check_wall_position_1.y -= TILE_SIZE / 2.;
                         }
                     };
+                    let mut is_need_check_position_2 = false;
                     let mut check_wall_position_2 = check_wall_position_1;
                     match enemy_charactor.direction {
                         AllDirection::Left | AllDirection::Right => {
                             check_wall_position_1.y -= next_time_translation.y % TILE_SIZE;
                             check_wall_position_2.y = check_wall_position_1.y + TILE_SIZE;
+                            is_need_check_position_2 = next_time_translation.y % TILE_SIZE > 0.;
                         }
                         AllDirection::Up | AllDirection::Down => {
                             check_wall_position_1.x -= next_time_translation.x % TILE_SIZE;
                             check_wall_position_2.x = check_wall_position_1.x + TILE_SIZE;
+                            is_need_check_position_2 = next_time_translation.x % TILE_SIZE > 0.;
                         }
                     };
 
                     // 壁が存在するなら進まない
                     if is_wall(check_wall_position_1, stage_state.get())
                         // x/y軸で2つの壁の中間にいる場合は2つ目の壁の有無もチェック
-                        || ((next_time_translation.x % TILE_SIZE > 0. || next_time_translation.y % TILE_SIZE > 0.)
+                        || (is_need_check_position_2
                             && is_wall(check_wall_position_2, stage_state.get()))
                     {
                         enemy_charactor.stop = true;
