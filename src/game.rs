@@ -1941,7 +1941,7 @@ pub mod game_scene {
                 if enemy_charactor.stop
                     && (enemy.kind == EnemyKind::RedDemon || enemy.kind == EnemyKind::Wizard)
                     // プレイヤーのいる方向にしか撃たない
-                    && player_transform.translation.x >= enemy_transform.translation.x * enemy_transform.scale.x * -1.
+                    && player_transform.translation.x * enemy_transform.scale.x * -1. >= enemy_transform.translation.x * enemy_transform.scale.x * -1.
                     && enemy_charactor.weapon_cooldown.finished()
                 {
                     // 連発できないよう武器が存在する期間のクールダウンタイムを開始する
