@@ -11,7 +11,7 @@ pub mod game_scene {
     use innocent_heart::utils::*;
     use rand::Rng;
 
-    const DEBUG_MODE: bool = true; // trueにすると無敵
+    const DEBUG_MODE: bool = false; // trueにすると無敵
     const FPS: usize = 60;
     const TIME_1F: f32 = 1. / FPS as f32;
     const CHARACTER_SIZE: f32 = 32.;
