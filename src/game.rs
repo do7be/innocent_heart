@@ -11,6 +11,7 @@ pub mod game_scene {
     use innocent_heart::utils::*;
     use rand::Rng;
 
+    const DEBUG_MODE: bool = true; // trueにすると無敵
     const FPS: usize = 60;
     const TIME_1F: f32 = 1. / FPS as f32;
     const CHARACTER_SIZE: f32 = 32.;
@@ -676,7 +677,7 @@ pub mod game_scene {
         mut query: Query<&Transform, With<Player>>,
     ) {
         let transform = query.single_mut();
-        if transform.translation.x > TILE_SIZE * (MAP_WIDTH_TILES - 2) as f32 {
+        if transform.translation.x >= TILE_SIZE * (MAP_WIDTH_TILES - 2) as f32 {
             stage_state.set(StageState::Stage2);
             game_state.set(GameState::Loading);
         }
@@ -1203,6 +1204,11 @@ pub mod game_scene {
         mut collision_events: EventWriter<CollisionEvent>,
         mut timer: ResMut<DeathTimer>,
     ) {
+        // デバッグモードなら無敵
+        if DEBUG_MODE {
+            return;
+        }
+
         let character_size = Vec2::new(CHARACTER_SIZE, CHARACTER_SIZE);
         let (mut player_transform, mut player, mut player_animation, mut player_texture_atlas) =
             player_query.single_mut();
@@ -1324,6 +1330,11 @@ pub mod game_scene {
         mut collision_events: EventWriter<CollisionEvent>,
         mut timer: ResMut<DeathTimer>,
     ) {
+        // デバッグモードなら無敵
+        if DEBUG_MODE {
+            return;
+        }
+
         let character_size = Vec2::new(CHARACTER_SIZE, CHARACTER_SIZE);
         let boss_size = Vec2::new(BOSS_SIZE, BOSS_SIZE);
         let (mut player_transform, mut player, mut player_animation, mut player_texture_atlas) =
@@ -1501,6 +1512,11 @@ pub mod game_scene {
         mut collision_events: EventWriter<CollisionEvent>,
         mut death_timer: ResMut<DeathTimer>,
     ) {
+        // デバッグモードなら無敵
+        if DEBUG_MODE {
+            return;
+        }
+
         let character_size = Vec2::new(CHARACTER_SIZE, CHARACTER_SIZE);
         let (mut player_transform, mut player, mut player_animation, mut player_texture_atlas) =
             player_query.single_mut();
@@ -2235,10 +2251,18 @@ pub mod game_scene {
             StageState::Stage2 | StageState::Boss => super::stage2_walls(),
         };
 
-        let column = (position.x / TILE_SIZE).round() as usize;
-        let row = (position.y / TILE_SIZE).round() as usize;
+        let column = (position.x / TILE_SIZE).round() as i32;
+        let row = (position.y / TILE_SIZE).round() as i32;
 
-        walls[row][column]
+        if row < 0
+            || row >= MAP_HEIGHT_TILES as i32
+            || column < 0
+            || column >= MAP_WIDTH_TILES as i32
+        {
+            return true;
+        }
+
+        walls[row as usize][column as usize]
     }
 }
 
