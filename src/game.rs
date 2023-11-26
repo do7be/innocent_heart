@@ -305,7 +305,7 @@ pub mod game_scene {
                         _ => TILE_SIZE * 2.,
                     },
                     TILE_SIZE * 2.,
-                    2.,
+                    1., // 敵や弾より奥
                 ),
                 ..default()
             },
@@ -482,7 +482,7 @@ pub mod game_scene {
             SpriteSheetBundle {
                 texture_atlas: texture_atlas_handle,
                 sprite: TextureAtlasSprite::new(animation_indices.first),
-                transform: Transform::from_xyz(TILE_SIZE * 96., TILE_SIZE * 2.5, 0.),
+                transform: Transform::from_xyz(TILE_SIZE * 96., TILE_SIZE * 2.5, 2.),
                 ..default()
             },
             animation_indices,
@@ -580,7 +580,7 @@ pub mod game_scene {
                         translation: Vec3::new(
                             TILE_SIZE * position.x as f32,
                             TILE_SIZE * (14 - position.y) as f32,
-                            0.,
+                            2.,
                         ),
                         scale: Vec3::new(-1., 1., 1.),
                         ..default()
@@ -810,8 +810,8 @@ pub mod game_scene {
             PlayerWeaponKind::Thunder => Vec3::new(
                 transform.translation.x,
                 TILE_SIZE * (MAP_HEIGHT_TILES - 1) as f32,
-                // 壁よりも手前に表示
-                1.,
+                // 壁や敵よりも手前に表示
+                3.,
             ),
             _ => Vec3::new(
                 match player.direction {
@@ -819,8 +819,8 @@ pub mod game_scene {
                     Direction::Left => transform.translation.x - TILE_SIZE,
                 },
                 transform.translation.y,
-                // 壁よりも手前に表示
-                1.,
+                // 壁や敵よりも手前に表示
+                3.,
             ),
         };
 
