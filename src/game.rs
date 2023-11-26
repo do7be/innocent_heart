@@ -1072,7 +1072,7 @@ pub mod game_scene {
             // y軸で2つの壁の中間にいるケースがあるのでその場合は2つの壁をチェック
             let mut check_wall_position_1 = next_time_translation;
             check_wall_position_1.x = match player.direction {
-                Direction::Left => check_wall_position_1.x - TILE_SIZE / 2.,
+                Direction::Left => check_wall_position_1.x - TILE_SIZE / 2. + 1.,
                 Direction::Right => check_wall_position_1.x + TILE_SIZE / 2. - 1.,
             };
             let mut check_wall_position_2 = check_wall_position_1;
@@ -2081,7 +2081,7 @@ pub mod game_scene {
                     let mut check_wall_position_1 = next_time_translation;
                     match enemy_charactor.direction {
                         AllDirection::Left => {
-                            check_wall_position_1.x -= TILE_SIZE / 2.;
+                            check_wall_position_1.x -= TILE_SIZE / 2. + 1.;
                         }
                         AllDirection::Right => {
                             check_wall_position_1.x += TILE_SIZE / 2. - 1.;
@@ -2090,7 +2090,7 @@ pub mod game_scene {
                             check_wall_position_1.y += TILE_SIZE / 2. - 1.;
                         }
                         AllDirection::Down => {
-                            check_wall_position_1.y -= TILE_SIZE / 2.;
+                            check_wall_position_1.y -= TILE_SIZE / 2. + 1.;
                         }
                     };
                     let mut is_need_check_position_2 = false;
