@@ -226,8 +226,8 @@ pub mod game_scene {
                 .add_systems(
                     FixedUpdate,
                     (
-                        check_cllision_boss_system,
-                        check_cllision_player_weapon_for_boss_system,
+                        check_collision_boss_system,
+                        check_collision_player_weapon_for_boss_system,
                         check_defeat_boss_system,
                         control_boss_system,
                         turn_around_boss_system,
@@ -1316,7 +1316,7 @@ pub mod game_scene {
         }
     }
 
-    fn check_cllision_boss_system(
+    fn check_collision_boss_system(
         mut player_query: Query<
             (
                 &mut Transform,
@@ -1361,7 +1361,7 @@ pub mod game_scene {
         }
     }
 
-    fn check_cllision_player_weapon_for_boss_system(
+    fn check_collision_player_weapon_for_boss_system(
         mut commands: Commands,
         mut boss_query: Query<(&mut Boss, &Transform), With<Boss>>,
         mut player_weapon_query: Query<
