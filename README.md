@@ -4,7 +4,7 @@
 
 https://do7be.github.io/innocent_heart/
 
-## Original Code Branch
+## Original Source Code
 
 https://github.com/do7be/innocent_heart/tree/c
 
