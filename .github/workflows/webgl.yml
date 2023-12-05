@@ -16,8 +16,8 @@ jobs:
       - name: Setup Rust
         run: |
           rustup target add wasm32-unknown-unknown
-          cargo install wasm-bindgen-cli --version 0.2.88
-          cargo update -p wasm-bindgen --precise 0.2.88
+          cargo install wasm-bindgen-cli --version 0.2.89
+          cargo update -p wasm-bindgen --precise 0.2.89
 
       - name: Build
         env:
